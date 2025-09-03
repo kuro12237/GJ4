@@ -4,14 +4,15 @@ setlocal
 cd /d %~dp0..
 echo directory: %cd%
 
-
 echo Engine pull
+cd Engine
 :: 最新化
-git submodule update --init --remote --recursive Engine
+git pull origin master
 
-git add Engine
+cd ..
 
 echo Engine update Submodule！
+
 
 :: Engine\bat\RunAll.bat を実行
 echo Engine RunAll
