@@ -6,7 +6,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
   std::unique_ptr<Engine> engine_ = std::make_unique<Engine>();
 
   engine_->Init();
-  // ’nŒ`ƒ‚ƒfƒ‹‚ÌÝ’è
+  // åœ°å½¢ãƒ¢ãƒ‡ãƒ«ã®è¨­å®š
       uint32_t modelHandle =
       CLEYERA::Manager::ModelManager::GetInstance()->LoadModel("Resources/Model/Terrain/", "terrain");
   CLEYERA::Manager::Terrain::GetInstance()->ChengeData(modelHandle);
