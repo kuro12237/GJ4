@@ -1,7 +1,16 @@
 #include "GameScene.h"
 
 void GameScene::Init() {
+
+  loader_ = std::make_unique<SceneLoader>();
+  loader_->LoadSceneData("GameScene");
+
   CLEYERA::Manager::GlobalVariables::GetInstance()->LoadFiles("Configs");
+
+  enviromentObjs_ = loader_->SettingData();
+
+  loader_.reset();
+
 
   auto objManager = CLEYERA::Manager::ObjectManager::GetInstance();
 

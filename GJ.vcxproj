@@ -137,6 +137,8 @@
     <ClCompile Include="GameObject\Player\Player.cpp" />
     <ClCompile Include="GameObject\Player\PlayerCamera\PlayerCamera.cpp" />
     <ClCompile Include="GameObject\Secne\GameScene.cpp" />
+    <ClCompile Include="GameObject\Util\EnvironmentObject\EnvironmentObject.cpp" />
+    <ClCompile Include="GameObject\Util\SceneLoader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="GameObject\Secne\TitleSecne.cpp" />
   </ItemGroup>
@@ -146,6 +148,8 @@
     <ClInclude Include="GameObject\Player\PlayerManager.h" />
     <ClInclude Include="GameObject\Secne\GameScene.h" />
     <ClInclude Include="GameObject\Secne\TitleSecne.h" />
+    <ClInclude Include="GameObject\Util\EnvironmentObject\EnvironmentObject.h" />
+    <ClInclude Include="GameObject\Util\SceneLoader.h" />
     <ClInclude Include="GameObject\WorldSpeed\WorldSpeed.h" />
   </ItemGroup>
   <ItemGroup>

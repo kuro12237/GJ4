@@ -6,6 +6,8 @@
 
 #include"../WorldSpeed/WorldSpeed.h"
 
+#include"../Util/SceneLoader.h"
+
 class GameScene : public CLEYERA::Component::SceneComponent {
 public:
   GameScene() {};
@@ -22,5 +24,10 @@ private:
   std::shared_ptr<PlayerCamera> camera_ = nullptr;
 
   std::unique_ptr<WorldSetting> worldSpeed_ = nullptr;
+
+   std::unique_ptr<SceneLoader> loader_ = nullptr;
+
+  std::vector<std::weak_ptr<EnvironmentObject>> enviromentObjs_;
+
 
 };
