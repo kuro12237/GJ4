@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -134,11 +134,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameObject\Player\Player.cpp" />
+    <ClCompile Include="GameObject\Player\PlayerCamera\PlayerCamera.cpp" />
+    <ClCompile Include="GameObject\Secne\GameScene.cpp" />
+    <ClCompile Include="GameObject\Util\EnvironmentObject\EnvironmentObject.cpp" />
+    <ClCompile Include="GameObject\Util\SceneLoader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="GameObject\Secne\TitleSecne.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameObject\Player\Player.h" />
+    <ClInclude Include="GameObject\Player\PlayerCamera\PlayerCamera.h" />
+    <ClInclude Include="GameObject\Player\PlayerManager.h" />
+    <ClInclude Include="GameObject\Secne\GameScene.h" />
     <ClInclude Include="GameObject\Secne\TitleSecne.h" />
+    <ClInclude Include="GameObject\Util\EnvironmentObject\EnvironmentObject.h" />
+    <ClInclude Include="GameObject\Util\SceneLoader.h" />
+    <ClInclude Include="GameObject\WorldSpeed\WorldSpeed.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Engine\GameEngine\Engine.vcxproj">
