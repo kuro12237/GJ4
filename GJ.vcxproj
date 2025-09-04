@@ -141,7 +141,7 @@
     <ClInclude Include="GameObject\Secne\TitleSecne.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Engine\GameEngine\Engine.vcxproj">
+    <ProjectReference Include="Engine\GameEngine\Engine.vcxproj">
       <Project>{2e76c1f3-23e0-4603-89e6-4b2db16172d5}</Project>
     </ProjectReference>
   </ItemGroup>
