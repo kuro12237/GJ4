@@ -21,9 +21,51 @@
     <ClCompile Include="GameObject\Secne\TitleSecne.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="GameObject\Secne\TitleUI\LogoUI\TitleLogo.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Secne\TitleUI\SubUI\SubUI_Manager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Secne\TitleUI\SelectUI\SelectUI.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Secne\TitleSecne.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Secne\TitleUI\LogoUI\TitleLogo.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Secne\TitleUI\SubUI\ISubUI.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Secne\TitleUI\SubUI\SubUI_Manager.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Secne\TitleUI\SelectUI\SelectUI.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Secne\TitleUI\LogoUI\ITitleLogoUI.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Secne\TitleUI\LogoUI\TitleLogo_HOT.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Secne\TitleUI\LogoUI\TitleLogo_WHITE.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Secne\TitleUI\SelectUI\ISelectUI.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Secne\TitleUI\SelectUI\SeletUI_GameState.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Secne\TitleUI\SelectUI\SeletUI_Options.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Secne\TitleUI\SubUI\Background\Background.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

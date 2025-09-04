@@ -136,9 +136,23 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="GameObject\Secne\TitleSecne.cpp" />
+    <ClCompile Include="GameObject\Secne\TitleUI\LogoUI\TitleLogo.cpp" />
+    <ClCompile Include="GameObject\Secne\TitleUI\SubUI\SubUI_Manager.cpp" />
+    <ClCompile Include="GameObject\Secne\TitleUI\SelectUI\SelectUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Secne\TitleSecne.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\SubUI\Background\Background.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\SubUI\ISubUI.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\LogoUI\ITitleLogoUI.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\LogoUI\TitleLogo.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\LogoUI\TitleLogo_HOT.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\LogoUI\TitleLogo_WHITE.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\SelectUI\ISelectUI.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\SelectUI\SeletUI_GameState.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\SelectUI\SeletUI_Options.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\SubUI\SubUI_Manager.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\SelectUI\SelectUI.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Engine\GameEngine\Engine.vcxproj">
