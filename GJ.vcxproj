@@ -146,6 +146,7 @@
     <ClInclude Include="GameObject\Player\PlayerManager.h" />
     <ClInclude Include="GameObject\Secne\GameScene.h" />
     <ClInclude Include="GameObject\Secne\TitleSecne.h" />
+    <ClInclude Include="GameObject\WorldSpeed\WorldSpeed.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Engine\GameEngine\Engine.vcxproj">

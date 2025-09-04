@@ -1,11 +1,10 @@
 #pragma once
-#include"CLEYERA/CLEYERA.h"
-
+#include "CLEYERA/CLEYERA.h"
 
 /// <summary>
 /// プレイヤー
 /// </summary>
-class Player :public CLEYERA::Component::ObjectComponent{
+class Player : public CLEYERA::Component::ObjectComponent {
 public:
   Player() {};
   ~Player() {};
@@ -13,8 +12,20 @@ public:
   void Init() override;
   void Update() override;
 
+  #pragma region Get
+
+  float &GetZCenter() { return zCenter_; }
+
+#pragma endregion
+
+
 private:
+  void Control();
+
+  float widthMinMax_ = 9.0f;
+  float heightMinMax_ = 3.0f;
+
+  float speed_ = 0.0f;
+
+  float zCenter_ = 0.0f;
 };
-
-
-

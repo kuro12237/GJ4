@@ -1,6 +1,7 @@
 #include "GameScene.h"
 
 void GameScene::Init() {
+  CLEYERA::Manager::GlobalVariables::GetInstance()->LoadFiles("Configs");
 
   auto objManager = CLEYERA::Manager::ObjectManager::GetInstance();
 
@@ -10,17 +11,27 @@ void GameScene::Init() {
   camera_ = std::make_shared<PlayerCamera>();
   camera_->Init();
 
-    // 地形モデルの設定
+  worldSpeed_ = std::make_unique<WorldSetting>();
+  // 地形モデルの設定
   uint32_t modelHandle =
       CLEYERA::Manager::ModelManager::GetInstance()->LoadModel(
-          "Resources/Model/Terrain", "terrain");
- 
-
+          "Resources/Model/Terrain/", "terrain");
+  CLEYERA::Manager::Terrain::GetInstance()->ChengeData(modelHandle);
 }
 
 void GameScene::Update([[maybe_unused]] CLEYERA::Manager::SceneManager *ins) {
 
+  if (ImGui::Button("SceneReLoad")) {
+    ins->ChangeScene("GameScene");
+    return;
+  }
+
   camera_->Update();
+
+  worldSpeed_->CalcSpeed(player_.lock()->GetTranslate());
+  worldSpeed_->CalcSpeed(player_.lock()->GetZCenter());
+  worldSpeed_->CalcSpeed(camera_->GetTranslate());
+
 }
 
 void GameScene::Draw2d() {}
