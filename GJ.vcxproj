@@ -142,7 +142,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Secne\TitleSecne.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\SubUI\A_ButtonUI\A_Button.h" />
     <ClInclude Include="GameObject\Secne\TitleUI\SubUI\Background\Background.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\SubUI\ControllerUI\Controller.h" />
     <ClInclude Include="GameObject\Secne\TitleUI\SubUI\ISubUI.h" />
     <ClInclude Include="GameObject\Secne\TitleUI\LogoUI\ITitleLogoUI.h" />
     <ClInclude Include="GameObject\Secne\TitleUI\LogoUI\TitleLogo.h" />

@@ -28,6 +28,6 @@ void TitleScene::Update([[maybe_un_used]]CLEYERA::Manager::SceneManager* ins){
 
 void TitleScene::Draw2d(){
 
-	uiManager_->Draw2D();
 	subManager_->Draw2D();
+	uiManager_->Draw2D();
 }

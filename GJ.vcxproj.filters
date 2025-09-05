@@ -68,5 +68,11 @@
     <ClInclude Include="GameObject\Secne\TitleUI\SubUI\Background\Background.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="GameObject\Secne\TitleUI\SubUI\A_ButtonUI\A_Button.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Secne\TitleUI\SubUI\ControllerUI\Controller.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
