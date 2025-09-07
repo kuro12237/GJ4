@@ -158,7 +158,7 @@
     <ClCompile Include="GameObject\Util\Random\RandomGenerator.cpp" />
     <ClCompile Include="GameObject\Util\SceneLoader.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="GameObject\Secne\TitleSecne.cpp" />
+    <ClCompile Include="GameObject\Secne\TitleScene.cpp" />
     <ClCompile Include="GameObject\Secne\TitleUI\LogoUI\TitleLogo.cpp" />
     <ClCompile Include="GameObject\Secne\TitleUI\SubUI\SubUI_Manager.cpp" />
     <ClCompile Include="GameObject\Secne\TitleUI\SelectUI\SelectUI.cpp" />
@@ -184,7 +184,8 @@
     <ClInclude Include="GameObject\Player\PlayerState\PlayerHitState.h" />
     <ClInclude Include="GameObject\Player\PlayerState\PlayerNone.h" />
     <ClInclude Include="GameObject\Secne\GameScene.h" />
-    <ClInclude Include="GameObject\Secne\TitleSecne.h" />
+    <ClInclude Include="GameObject\Secne\TitleScene.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\SelectUI\SeletUI_GameOver.h" />
     <ClInclude Include="GameObject\Secne\TitleUI\SubUI\A_ButtonUI\A_Button.h" />
     <ClInclude Include="GameObject\Secne\TitleUI\SubUI\Background\Background.h" />
     <ClInclude Include="GameObject\Secne\TitleUI\SubUI\ControllerUI\Controller.h" />
@@ -195,7 +196,7 @@
     <ClInclude Include="GameObject\Secne\TitleUI\LogoUI\TitleLogo_WHITE.h" />
     <ClInclude Include="GameObject\Secne\TitleUI\SelectUI\ISelectUI.h" />
     <ClInclude Include="GameObject\Secne\TitleUI\SelectUI\SeletUI_GameState.h" />
-    <ClInclude Include="GameObject\Secne\TitleUI\SelectUI\SeletUI_Options.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\SelectUI\SeletUI_Tutorial.h" />
     <ClInclude Include="GameObject\Secne\TitleUI\SubUI\SubUI_Manager.h" />
     <ClInclude Include="GameObject\Secne\TitleUI\SelectUI\SelectUI.h" />
     <ClInclude Include="GameObject\Util\EnvironmentObject\EnvironmentObject.h" />
@@ -203,6 +204,11 @@
     <ClInclude Include="GameObject\Util\Random\RandomGenerator.h" />
     <ClInclude Include="GameObject\Util\SceneLoader.h" />
     <ClInclude Include="GameObject\WorldSpeed\WorldSpeed.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Engine\GameEngine\Engine.vcxproj">
+      <Project>{2e76c1f3-23e0-4603-89e6-4b2db16172d5}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

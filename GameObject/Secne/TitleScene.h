@@ -3,6 +3,7 @@
 
 #include "TitleUI/LogoUI/TitleLogo.h"
 #include "TitleUI/SubUI/SubUI_Manager.h"
+#include "TitleUI/SelectUI/SelectUI.h"
 
 
 class TitleScene:public CLEYERA::Component::SceneComponent
@@ -22,6 +23,7 @@ private:
 
 	std::unique_ptr<TitleLog> LogoManager_ = nullptr;
 	std::unique_ptr<SubUI> subManager_ = nullptr;
+	std::unique_ptr<SelectUI> SelectManager_ = nullptr;
 
 
 };

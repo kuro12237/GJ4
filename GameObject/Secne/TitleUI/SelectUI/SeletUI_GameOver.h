@@ -1,17 +1,16 @@
 #pragma once
-
 #include "ISelectUI.h"
 
-class SeletUI_Options :public ISelectUI
+class SeletUI_GameOver :public ISelectUI
 {
 public:
-	SeletUI_Options() = default;
-	~SeletUI_Options() = default;
+	SeletUI_GameOver() = default;
+	~SeletUI_GameOver() = default;
 
 	void Init() override {
 		this->Create();
 		this->GetJsonName();
-		uint32_t handle = texManager_->LoadPngTex("TitleUI/whitebreath");
+		uint32_t handle = texManager_->LoadPngTex("TitleUI/GameOut");
 		handle_ = handle;
 	}
 	void Update() {
