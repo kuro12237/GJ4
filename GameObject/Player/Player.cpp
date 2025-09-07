@@ -20,6 +20,7 @@ void Player::Init() {
 
   mass_ = 0.5f;
   zCenter_ = translate_.z;
+  gameObject_->SetLayerNumber(1);
 }
 
 void Player::Update() {

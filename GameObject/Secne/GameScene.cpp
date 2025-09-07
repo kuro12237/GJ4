@@ -14,13 +14,18 @@ void GameScene::Init() {
 
   auto objManager = CLEYERA::Manager::ObjectManager::GetInstance();
 
-  player_ = objManager->CreateObject<Player>(VAR_NAME(Player),
-                                             std::make_shared<Player>());
+  //player_ = objManager->CreateObject<Player>(VAR_NAME(Player),
+  //                                           std::make_shared<Player>());
 
   camera_ = std::make_shared<PlayerCamera>();
   camera_->Init();
 
-  worldSpeed_ = std::make_unique<WorldSetting>();
+  worldSpeed_ = std::make_shared<WorldSetting>();
+
+  playerManager_ = std::make_unique<PlayerManager>();
+  playerManager_->Init();
+  playerManager_->SetWorld(worldSpeed_);
+
   // 地形モデルの設定
   uint32_t modelHandle =
       CLEYERA::Manager::ModelManager::GetInstance()->LoadModel(
@@ -35,11 +40,7 @@ void GameScene::Update([[maybe_unused]] CLEYERA::Manager::SceneManager *ins) {
     return;
   }
 
-  camera_->Update();
-
-  worldSpeed_->CalcSpeed(player_.lock()->GetTranslate());
-  worldSpeed_->CalcSpeed(player_.lock()->GetZCenter());
-  worldSpeed_->CalcSpeed(camera_->GetTranslate());
+  playerManager_->Update();
 
 }
 
