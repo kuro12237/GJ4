@@ -32,6 +32,8 @@ void Player::Update() {
 #endif // _DEBUG
   Control();
 
+  ParamBase::CalcTemperature(translate_);
+
   TransformUpdate();
 }
 

@@ -134,18 +134,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameObject\Enemys\EnemyCore\EnemyTakanori.cpp" />
+    <ClCompile Include="GameObject\Enemys\EnemyManager.cpp" />
+    <ClCompile Include="GameObject\Paramerter\ParamBase.cpp" />
     <ClCompile Include="GameObject\Player\Player.cpp" />
     <ClCompile Include="GameObject\Player\PlayerBullet\PlayerBullet.cpp" />
     <ClCompile Include="GameObject\Player\PlayerCamera\PlayerCamera.cpp" />
     <ClCompile Include="GameObject\Player\PlayerManager.cpp" />
     <ClCompile Include="GameObject\Secne\GameScene.cpp" />
     <ClCompile Include="GameObject\Util\EnvironmentObject\EnvironmentObject.cpp" />
+    <ClCompile Include="GameObject\Util\RailFunc\Rail.cpp" />
     <ClCompile Include="GameObject\Util\SceneLoader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="GameObject\Secne\TitleSecne.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameObject\Enemys\EnemyCore\EnemyCore.h" />
+    <ClInclude Include="GameObject\Enemys\EnemyBase.h" />
+    <ClInclude Include="GameObject\Enemys\EnemyCore\EnemyTakanori.h" />
     <ClInclude Include="GameObject\Enemys\EnemyManager.h" />
     <ClInclude Include="GameObject\Paramerter\ParamBase.h" />
     <ClInclude Include="GameObject\Player\Player.h" />
@@ -155,6 +160,7 @@
     <ClInclude Include="GameObject\Secne\GameScene.h" />
     <ClInclude Include="GameObject\Secne\TitleSecne.h" />
     <ClInclude Include="GameObject\Util\EnvironmentObject\EnvironmentObject.h" />
+    <ClInclude Include="GameObject\Util\RailFunc\Rail.h" />
     <ClInclude Include="GameObject\Util\SceneLoader.h" />
     <ClInclude Include="GameObject\WorldSpeed\WorldSpeed.h" />
   </ItemGroup>
