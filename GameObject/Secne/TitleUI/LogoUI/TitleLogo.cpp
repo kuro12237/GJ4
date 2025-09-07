@@ -28,10 +28,10 @@ void TitleLog::Update()
 {
 	for (auto Logo : TitleLogo_) {
 		Logo->Update();
+		Logo->SetScale({ Scale });
 	}
-
-	TitleLogo_[0]->SetTranslate( HOT_pos);
-	TitleLogo_[1]->SetTranslate(WHITE_pos);
+	//TitleLogo_[0]->SetTranslate( HOT_pos);
+	//TitleLogo_[1]->SetTranslate(WHITE_pos);
 
 #ifdef _DEBUG
 
@@ -56,4 +56,30 @@ void TitleLog::Draw2D()
 	for (auto Logo : TitleLogo_) {
 		Logo->Draw();
 	}
+}
+
+
+
+void TitleLog::StartOpeningAnimation(float distance, float duration)
+{
+	if (TitleLogo_.size() < 2) { return; }
+
+	// 0”Ô–Ú(ãƒƒS)‚Æ1”Ô–Ú(‰ºƒƒS)‚ÌƒAƒjƒ[ƒVƒ‡ƒ“‚ðŠJŽn
+	// ã‚ÌƒƒS‚Íã‚ÉˆÚ“®
+	Math::Vector::Vec2 hot_start = HOT_pos;
+	Math::Vector::Vec2 hot_end = { HOT_pos.x, HOT_pos.y - distance };
+	TitleLogo_[0]->StartAnimation(hot_start, hot_end, duration);
+
+	// ‰º‚ÌƒƒS‚Í‰º‚ÉˆÚ“®
+	Math::Vector::Vec2 white_start = WHITE_pos;
+	Math::Vector::Vec2 white_end = { WHITE_pos.x, WHITE_pos.y + distance };
+	TitleLogo_[1]->StartAnimation(white_start, white_end, duration);
+}
+
+bool TitleLog::IsAnimating() const
+{
+	if (TitleLogo_.size() < 2) { return false; }
+
+	// ‚Ç‚¿‚ç‚©‚ÌƒƒS‚ªƒAƒjƒ[ƒVƒ‡ƒ“’†‚È‚çtrue‚ð•Ô‚·
+	return TitleLogo_[0]->IsAnimating() || TitleLogo_[1]->IsAnimating();
 }
