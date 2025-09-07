@@ -20,7 +20,7 @@ public:
 
 private:
 
-	std::unique_ptr<TitleLog> uiManager_ = nullptr;
+	std::unique_ptr<TitleLog> LogoManager_ = nullptr;
 	std::unique_ptr<SubUI> subManager_ = nullptr;
 
 };

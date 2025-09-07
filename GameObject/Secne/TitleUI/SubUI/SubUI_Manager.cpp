@@ -40,6 +40,9 @@ void SubUI::Update(){
 	ISubUI_[int(SubUI_Types::Controller)]->SetTranslate({ Controller_pos });
 	ISubUI_[int(SubUI_Types::Controller)]->SetScale({ Controller_Scale });
 
+
+	auto input = CLEYERA::Manager::InputManager::GetInstance();
+
 #ifdef _DEBUG
 
 	if (ImGui::TreeNode("SubUI")) {
