@@ -147,6 +147,9 @@
     <ClCompile Include="GameObject\Util\SceneLoader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="GameObject\Secne\TitleSecne.cpp" />
+    <ClCompile Include="GameObject\Secne\TitleUI\LogoUI\TitleLogo.cpp" />
+    <ClCompile Include="GameObject\Secne\TitleUI\SubUI\SubUI_Manager.cpp" />
+    <ClCompile Include="GameObject\Secne\TitleUI\SelectUI\SelectUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Enemys\EnemyBase.h" />
@@ -159,10 +162,24 @@
     <ClInclude Include="GameObject\Player\PlayerManager.h" />
     <ClInclude Include="GameObject\Secne\GameScene.h" />
     <ClInclude Include="GameObject\Secne\TitleSecne.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\SubUI\A_ButtonUI\A_Button.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\SubUI\Background\Background.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\SubUI\ControllerUI\Controller.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\SubUI\ISubUI.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\LogoUI\ITitleLogoUI.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\LogoUI\TitleLogo.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\LogoUI\TitleLogo_HOT.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\LogoUI\TitleLogo_WHITE.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\SelectUI\ISelectUI.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\SelectUI\SeletUI_GameState.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\SelectUI\SeletUI_Options.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\SubUI\SubUI_Manager.h" />
+    <ClInclude Include="GameObject\Secne\TitleUI\SelectUI\SelectUI.h" />
     <ClInclude Include="GameObject\Util\EnvironmentObject\EnvironmentObject.h" />
     <ClInclude Include="GameObject\Util\RailFunc\Rail.h" />
     <ClInclude Include="GameObject\Util\SceneLoader.h" />
     <ClInclude Include="GameObject\WorldSpeed\WorldSpeed.h" />
+
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Engine\GameEngine\Engine.vcxproj">
