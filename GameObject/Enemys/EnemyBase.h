@@ -14,6 +14,11 @@ public:
 
   void SetSpownPos(const Math::Vector::Vec3 &pos) { translate_ = pos; }
 
+  /// <summary>
+  /// 衝突時コールバック
+  /// </summary>
+  virtual void OnCollision(std::weak_ptr<ObjectComponent> other) = 0;
+
 private:
 protected:
   std::unique_ptr<Rail> rail_ = nullptr;

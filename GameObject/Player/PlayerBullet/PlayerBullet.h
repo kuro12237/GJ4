@@ -11,6 +11,12 @@ public:
 
   bool GetIsDead() { return isDead_; }
   void SetSpownPos(const Math::Vector::Vec3 &pos) { translate_ = pos; }
+  
+  
+  /// <summary>
+  /// 衝突時コールバック
+  /// </summary>
+  void OnCollision(std::weak_ptr<ObjectComponent> other);
 
 private:
   void TimeFunc();
