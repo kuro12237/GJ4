@@ -17,6 +17,7 @@
     <ClCompile Include="GameObject\Secne\TitleUI\LogoUI\TitleLogo.cpp" />
     <ClCompile Include="GameObject\Secne\TitleUI\SubUI\SubUI_Manager.cpp" />
     <ClCompile Include="GameObject\Secne\TitleUI\SelectUI\SelectUI.cpp" />
+    <ClCompile Include="GameObject\Secne\BlackScreenTransition.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Enemys\EnemyBase.h" />
@@ -47,5 +48,6 @@
     <ClInclude Include="GameObject\Util\SceneLoader.h" />
     <ClInclude Include="GameObject\WorldSpeed\WorldSpeed.h" />
     <ClInclude Include="GameObject\Secne\TitleUI\SelectUI\SeletUI_GameOver.h" />
+    <ClInclude Include="GameObject\Secne\BlackScreenTransition.h" />
   </ItemGroup>
 </Project>

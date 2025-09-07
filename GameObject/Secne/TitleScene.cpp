@@ -14,6 +14,8 @@ void TitleScene::Init() {
 
 void TitleScene::Update([[maybe_un_used]] CLEYERA::Manager::SceneManager* ins) {
     auto input = CLEYERA::Manager::InputManager::GetInstance();
+    auto sceneManager = CLEYERA::Manager::SceneManager::GetInstance();
+
 
     // 常に更新するものを先に呼ぶ
     LogoManager_->Update();
@@ -60,19 +62,46 @@ void TitleScene::Update([[maybe_un_used]] CLEYERA::Manager::SceneManager* ins) {
         if (input->PushBotton(XINPUT_GAMEPAD_A)) {
             SelectUI::SelectItem current = SelectManager_->GetCurrentSelect();
 
+            // 遷移先のシーン名を確定させる
             if (current == SelectUI::SelectItem::GameState) {
-                auto sceneManager = CLEYERA::Manager::SceneManager::GetInstance();
-                sceneManager->ChangeScene("GameScene");
-                return;
+                nextSceneName_ = "GameScene";
             }
-            else if (current == SelectUI::SelectItem::Tutorial) { 
-                /* チュートリアル処理 */ 
+            else if (current == SelectUI::SelectItem::Tutorial) {
+                nextSceneName_ = "TutorialScene"; // 例
             }
             else if (current == SelectUI::SelectItem::GameOver) {
-                /* ゲーム終了処理 */ 
+                // ゲーム終了の場合はフェードさせずに直接終了させるなど、別の処理でも良い
+                return; // この例では何もしない
+            }
+
+            // フェードアウトの準備
+            if (!nextSceneName_.empty()) {
+                fadeTimer_ = 0.0f;                // タイマーをリセット
+                currentState_ = State::FADING_OUT; // フェードアウト状態に移行
             }
         }
         break;
+        // ★★★ フェードアウト状態の処理を追加 ★★★
+    case State::FADING_OUT:
+    { // case内で変数を宣言するためスコープを追加
+        const float DELTA_TIME_60FPS = 1.0f / 60.0f;
+        fadeTimer_ += DELTA_TIME_60FPS;
+
+        // Alpha値を計算 (1.0f -> 0.0f)
+        float alpha = 1.0f - (fadeTimer_ / FADE_DURATION);
+        if (alpha < 0.0f) { alpha = 0.0f; }
+
+        // 全オブジェクトのAlpha値を設定
+        LogoManager_->SetAllAlphas(alpha);
+        SelectManager_->SetAllAlphas(alpha);
+        subManager_->SetAllAlphas(alpha); // subManagerも忘れずに
+
+        // フェードアウトが完了したらシーン遷移
+        if (fadeTimer_ >= FADE_DURATION) {
+            sceneManager->ChangeScene(nextSceneName_);
+        }
+    }
+    break;
     }
 }
 

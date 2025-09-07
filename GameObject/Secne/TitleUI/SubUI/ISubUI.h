@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #include "CLEYERA/CLEYERA.h"
 
 
@@ -12,6 +11,13 @@ public:
 	virtual void Init() {}
 
 	virtual void Update() {}
+
+	virtual void SetAlpha(float alpha) {
+		// sprite_の色情報を変更。R,G,Bは1.0f(白)のまま、Alpha値のみ変更する
+		if (sprite_) {
+			this->sprite_->ColorData().color_ = { 1.0f, 1.0f, 1.0f, alpha };
+		}
+	}
 
 #pragma region Set
 

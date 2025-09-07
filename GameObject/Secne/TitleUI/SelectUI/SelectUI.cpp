@@ -83,3 +83,9 @@ void SelectUI::OnDpadInput(int direction)
 
 	isChangeable_ = false; // アニメーション開始したので、一旦入力を無効化
 }
+
+void SelectUI::SetAllAlphas(float alpha){
+	for (auto& ui : SelectUI_) {
+		ui->SetAlpha(alpha);
+	}
+}

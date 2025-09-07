@@ -32,8 +32,7 @@ public:
 	// Œ»İ‘I‘ğ’†‚Ì€–Ú‚ğ•Ô‚·ŠÖ”
 	SelectItem GetCurrentSelect() const { return currentSelect_; }
 
-private:
-	void ChangeSelection(int newIndex, int direction);
+	void SetAllAlphas(float alpha);
 
 private:
 	std::vector<std::shared_ptr<ISelectUI>> SelectUI_;

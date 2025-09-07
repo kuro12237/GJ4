@@ -28,7 +28,7 @@ void TitleLog::Update()
 {
 	for (auto Logo : TitleLogo_) {
 		Logo->Update();
-		Logo->SetScale({ Scale });
+	//	Logo->SetScale({ Scale });
 	}
 	//TitleLogo_[0]->SetTranslate( HOT_pos);
 	//TitleLogo_[1]->SetTranslate(WHITE_pos);
@@ -58,6 +58,10 @@ void TitleLog::Draw2D()
 	}
 }
 
+void TitleLog::SceneEnd(){
+	
+}
+
 
 
 void TitleLog::StartOpeningAnimation(float distance, float duration)
@@ -82,4 +86,10 @@ bool TitleLog::IsAnimating() const
 
 	// どちらかのロゴがアニメーション中ならtrueを返す
 	return TitleLogo_[0]->IsAnimating() || TitleLogo_[1]->IsAnimating();
+}
+
+void TitleLog::SetAllAlphas(float alpha){
+	for (auto& logo : TitleLogo_) {
+		logo->SetAlpha(alpha);
+	}
 }

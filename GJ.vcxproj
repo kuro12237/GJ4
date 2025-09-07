@@ -142,6 +142,7 @@
     <ClCompile Include="GameObject\Player\PlayerCamera\PlayerCamera.cpp" />
     <ClCompile Include="GameObject\Player\PlayerManager.cpp" />
     <ClCompile Include="GameObject\Secne\GameScene.cpp" />
+    <ClCompile Include="GameObject\Secne\BlackScreenTransition.cpp" />
     <ClCompile Include="GameObject\Util\EnvironmentObject\EnvironmentObject.cpp" />
     <ClCompile Include="GameObject\Util\RailFunc\Rail.cpp" />
     <ClCompile Include="GameObject\Util\SceneLoader.cpp" />
@@ -160,6 +161,7 @@
     <ClInclude Include="GameObject\Player\PlayerBullet\PlayerBullet.h" />
     <ClInclude Include="GameObject\Player\PlayerCamera\PlayerCamera.h" />
     <ClInclude Include="GameObject\Player\PlayerManager.h" />
+    <ClInclude Include="GameObject\Secne\BlackScreenTransition.h" />
     <ClInclude Include="GameObject\Secne\GameScene.h" />
     <ClInclude Include="GameObject\Secne\TitleScene.h" />
     <ClInclude Include="GameObject\Secne\TitleUI\SelectUI\SeletUI_GameOver.h" />

@@ -71,3 +71,9 @@ void SubUI::Draw2D(){
 		ISubUI->Draw();
 	}
 }
+
+void SubUI::SetAllAlphas(float alpha){
+	for (auto ISubUI : ISubUI_) {
+		ISubUI->SetAlpha(alpha);
+	}
+}
