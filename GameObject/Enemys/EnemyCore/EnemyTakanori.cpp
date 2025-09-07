@@ -25,11 +25,14 @@ void EnemyTakanori::Init() {
 
   auto aabb = std::dynamic_pointer_cast<CLEYERA::Util::Collider::AABBCollider>(
       GetCollider().lock());
-  aabb->GetAABB_().max = {1.0f,1.0f,1.0f};
+  aabb->GetAABB_().max = {1.0f, 1.0f, 1.0f};
   aabb->GetAABB_().min = {-1.0f, -1.0f, -1.0f};
 }
 
 void EnemyTakanori::Update() {}
 
 void EnemyTakanori::OnCollision(
-    [[maybe_unused]] std::weak_ptr<ObjectComponent> other) {}
+    [[maybe_unused]] std::weak_ptr<ObjectComponent> other) {
+
+  SetMode(CLEYERA::Component::ObjectComponent::OBJ_MODE::REMOVE);
+}
