@@ -4,6 +4,7 @@
 #include "TitleUI/LogoUI/TitleLogo.h"
 #include "TitleUI/SubUI/SubUI_Manager.h"
 #include "TitleUI/SelectUI/SelectUI.h"
+#include "BlackScreenTransition.h"
 
 
 class TitleScene:public CLEYERA::Component::SceneComponent
@@ -11,9 +12,12 @@ class TitleScene:public CLEYERA::Component::SceneComponent
 public:
 
 	enum class State {
-		LOGO_SHOW,      // ロゴ表示中（入力待ち）
+		FADING_IN,          // シーン開始時のフェードイン待ち
+		LOGO_SHOW,		// ロゴ表示中（入力待ち）
 		LOGO_ANIMATING, // ロゴがアニメーション中
-		SELECT_ACTIVE   // 選択肢が操作可能
+		SELECT_ACTIVE,	// 選択肢が操作可能
+		FADING_OUT,		//フェードアウト
+		WAITING_FOR_FADE_OUT,
 	};
 
 	TitleScene() {};
@@ -34,4 +38,7 @@ private:
 
 	State currentState_ = State::LOGO_SHOW;
 
+	float fadeTimer_ = 0.0f;
+	const float FADE_DURATION = 1.0f; // フェードにかける時間（1秒）
+	std::string nextSceneName_ = "";    // 遷移先のシーン名を保持する変数
 };

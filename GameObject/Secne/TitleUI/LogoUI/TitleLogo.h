@@ -17,8 +17,13 @@ public:
 	void Update();
 	void Draw2D();
 
+	void SceneEnd();
+
 	void StartOpeningAnimation(float distance, float duration);
 	bool IsAnimating() const;
+
+	void SetAllAlphas(float alpha);
+
 
 private:
 	std::vector<std::shared_ptr<ITitleLogo>> TitleLogo_;

@@ -25,6 +25,7 @@ public:
 		currentPos_.y = AnimationUtil::Lerp(startPos_.y, targetPos_.y, t);
 
 		this->SetTranslate(currentPos_);
+		
 	}
 
 	void StartAnimation(const Math::Vector::Vec2& start, const Math::Vector::Vec2& end, float duration = 0.5f) {
@@ -37,6 +38,13 @@ public:
 	}
 
 	bool IsAnimating() const { return isAnimating_; }
+
+	virtual void SetAlpha(float alpha) {
+		// sprite_の色情報を変更。R,G,Bは1.0f(白)のまま、Alpha値のみ変更する
+		if (sprite_) {
+			this->sprite_->ColorData().color_={ 1.0f, 1.0f, 1.0f, alpha };
+		}
+	}
 #pragma region Set
 
 	virtual void SetScale(const Math::Vector::Vec2& scale) {

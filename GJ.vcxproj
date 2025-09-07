@@ -153,6 +153,7 @@
     <ClCompile Include="GameObject\Player\PlayerState\PlayerHitState.cpp" />
     <ClCompile Include="GameObject\Player\PlayerState\PlayerNone.cpp" />
     <ClCompile Include="GameObject\Secne\GameScene.cpp" />
+    <ClCompile Include="GameObject\Secne\BlackScreenTransition.cpp" />
     <ClCompile Include="GameObject\Util\EnvironmentObject\EnvironmentObject.cpp" />
     <ClCompile Include="GameObject\Util\RailFunc\Rail.cpp" />
     <ClCompile Include="GameObject\Util\Random\RandomGenerator.cpp" />

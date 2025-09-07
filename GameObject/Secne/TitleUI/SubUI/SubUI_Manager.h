@@ -22,6 +22,9 @@ public:
 	void Update();
 	void Draw2D();
 
+	void SetAllAlphas(float alpha);
+
+
 private:
 	std::vector<std::shared_ptr<ISubUI>> ISubUI_;
 
