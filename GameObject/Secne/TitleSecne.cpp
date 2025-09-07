@@ -1,38 +1,36 @@
 #include "TitleSecne.h"
 
-void TitleScene::Init()
-{
-	LogoManager_ = std::make_unique<TitleLog>();
-	LogoManager_->Init();
+void TitleScene::Init() {
+  LogoManager_ = std::make_unique<TitleLog>();
+  LogoManager_->Init();
 
-	subManager_ = std::make_unique<SubUI>();
-	subManager_->Init();
-
+  subManager_ = std::make_unique<SubUI>();
+  subManager_->Init();
 }
 
-void TitleScene::Update([[maybe_un_used]]CLEYERA::Manager::SceneManager* ins){
+void TitleScene::Update([[maybe_un_used]] CLEYERA::Manager::SceneManager *ins) {
 
-	auto input = CLEYERA::Manager::InputManager::GetInstance();
-	//\ŽšƒL[ã
-	if (input->PushBotton(XINPUT_GAMEPAD_DPAD_RIGHT)) {
-	
-	}
-	//\ŽšƒL[‰º
-	if (input->PushBotton(XINPUT_GAMEPAD_DPAD_LEFT)) {
+  auto input = CLEYERA::Manager::InputManager::GetInstance();
+  // åå­—ã‚­ãƒ¼ä¸Š
+  if (input->PushBotton(XINPUT_GAMEPAD_DPAD_RIGHT)) {
+  }
+  // åå­—ã‚­ãƒ¼ä¸‹
+  if (input->PushBotton(XINPUT_GAMEPAD_DPAD_LEFT)) {
+  }
 
-	}
+  // Aãƒœã‚¿ãƒ³
+  if (input->PushBotton(XINPUT_GAMEPAD_A)) {
+    auto sceneManager = CLEYERA::Manager::SceneManager::GetInstance();
+    sceneManager->ChangeScene("GameScene");
+    return;
+  }
 
-	//Aƒ{ƒ^ƒ“
-	if (input->PushBotton(XINPUT_GAMEPAD_A)) {
-
-	}
-
-	LogoManager_->Update();
-	subManager_->Update();
+  LogoManager_->Update();
+  subManager_->Update();
 }
 
-void TitleScene::Draw2d(){
+void TitleScene::Draw2d() {
 
-	subManager_->Draw2D();
-	LogoManager_->Draw2D();
+  subManager_->Draw2D();
+  LogoManager_->Draw2D();
 }
