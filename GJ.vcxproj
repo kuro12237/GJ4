@@ -134,6 +134,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameObject\Paramerter\ParamBase.cpp" />
     <ClCompile Include="GameObject\Player\Player.cpp" />
     <ClCompile Include="GameObject\Player\PlayerBullet\PlayerBullet.cpp" />
     <ClCompile Include="GameObject\Player\PlayerCamera\PlayerCamera.cpp" />

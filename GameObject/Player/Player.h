@@ -1,10 +1,11 @@
 #pragma once
 #include "CLEYERA/CLEYERA.h"
+#include"../Paramerter/ParamBase.h"
 
 /// <summary>
 /// プレイヤー
 /// </summary>
-class Player : public CLEYERA::Component::ObjectComponent {
+class Player : public CLEYERA::Component::ObjectComponent ,public ParamBase{
 public:
   Player() {};
   ~Player() {};
