@@ -1,6 +1,6 @@
 #include "CLEYERA/CLEYERA.h"
 #include "GameObject/Secne/GameScene.h"
-#include "GameObject/Secne/TitleSecne.h"
+#include "GameObject/Secne/TitleScene.h"
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 

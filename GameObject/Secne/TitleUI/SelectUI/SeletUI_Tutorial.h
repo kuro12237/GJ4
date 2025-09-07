@@ -2,16 +2,16 @@
 
 #include "ISelectUI.h"
 
-class SeletUI_GameState :public ISelectUI
+class SeletUI_Tutorial :public ISelectUI
 {
 public:
-	SeletUI_GameState() = default;
-	~SeletUI_GameState() = default;
+	SeletUI_Tutorial() = default;
+	~SeletUI_Tutorial() = default;
 
 	void Init() override {
 		this->Create();
 		this->GetJsonName();
-		uint32_t handle = texManager_->LoadPngTex("TitleUI/GameState");
+		uint32_t handle = texManager_->LoadPngTex("TitleUI/Tutorial");
 		handle_ = handle;
 	}
 	void Update() {

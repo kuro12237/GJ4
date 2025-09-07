@@ -1,15 +1,51 @@
 #pragma once
 #include "CLEYERA/CLEYERA.h"
 
+
+// イージング関数などをまとめたシンプルなヘルパー
+namespace AnimationUtil {
+	inline float Lerp(float start, float end, float t) {
+		return start + t * (end - start);
+	}
+}
+
 class ISelectUI : public SpriteComponent
 {
 public:
 	ISelectUI() {};
 	virtual ~ISelectUI() {};
 
-	virtual void Init() {}
+	virtual void Init() {};
 
-	virtual void Update() {}
+	virtual void Update() {
+		if (!isAnimating_) { return; }
+
+		animationTimer_ += DeltaTime;
+		float t = animationTimer_ / animationDuration_;
+
+		// tが1を超えないようにクランプ
+		if (t > 1.0f) {
+			t = 1.0f;
+			isAnimating_ = false;
+		}
+
+		// Lerp（線形補間）を使って現在位置を計算
+		currentPos_.x = AnimationUtil::Lerp(startPos_.x, targetPos_.x, t);
+		currentPos_.y = AnimationUtil::Lerp(startPos_.y, targetPos_.y, t);
+
+		this->SetTranslate(currentPos_);
+	}
+
+	// アニメーションを開始させる関数
+	void StartSlideAnimation(const Math::Vector::Vec2& start, const Math::Vector::Vec2& end, float duration = 0.3f) {
+		startPos_ = start;
+		targetPos_ = end;
+		animationDuration_ = duration;
+		animationTimer_ = 0.0f;
+		isAnimating_ = true;
+	}
+
+	bool IsAnimating() const { return isAnimating_; }
 
 #pragma region Set
 
@@ -29,7 +65,15 @@ public:
 #pragma endregion
 
 
-private:
+protected:
+	// アニメーション関連の変数
+	bool isAnimating_ = false;
+	float animationTimer_ = 0.0f;
+	float animationDuration_ = 0.3f; // 0.3秒でスライド
+	float DeltaTime = 1.0f;
 
+	Math::Vector::Vec2 startPos_{};
+	Math::Vector::Vec2 targetPos_{};
+	Math::Vector::Vec2 currentPos_{};
 
 };
