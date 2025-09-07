@@ -11,20 +11,17 @@ void GameScene::Init() {
 
   loader_.reset();
 
-
   auto objManager = CLEYERA::Manager::ObjectManager::GetInstance();
 
-  //player_ = objManager->CreateObject<Player>(VAR_NAME(Player),
-  //                                           std::make_shared<Player>());
-
-  camera_ = std::make_shared<PlayerCamera>();
-  camera_->Init();
 
   worldSpeed_ = std::make_shared<WorldSetting>();
 
   playerManager_ = std::make_unique<PlayerManager>();
   playerManager_->Init();
   playerManager_->SetWorld(worldSpeed_);
+
+  enemyManager_ = std::make_unique<EnemyManager>();
+  enemyManager_->Init();
 
   // 地形モデルの設定
   uint32_t modelHandle =
@@ -41,7 +38,7 @@ void GameScene::Update([[maybe_unused]] CLEYERA::Manager::SceneManager *ins) {
   }
 
   playerManager_->Update();
-
+  enemyManager_->Update();
 }
 
 void GameScene::Draw2d() {}

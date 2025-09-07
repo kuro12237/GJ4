@@ -13,5 +13,11 @@ public:
   void SetSpownPos(const Math::Vector::Vec3 &pos) { translate_ = pos; }
 
 private:
+  void TimeFunc();
+
   bool isDead_ = false;
+
+
+  float time_ = 0.0f;
+  float timeMax_ = 2.0f;
 };

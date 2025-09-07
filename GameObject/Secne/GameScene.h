@@ -4,6 +4,7 @@
 #include "../WorldSpeed/WorldSpeed.h"
 
 #include "../Player/PlayerManager.h"
+#include"../Enemys/EnemyManager.h"
 #include "../Util/SceneLoader.h"
 
 class GameScene : public CLEYERA::Component::SceneComponent {
@@ -18,9 +19,7 @@ public:
   void Draw2d() override;
 
 private:
-  std::weak_ptr<Player> player_;
-  std::shared_ptr<PlayerCamera> camera_ = nullptr;
-
+ 
   std::shared_ptr<WorldSetting> worldSpeed_ = nullptr;
 
   std::unique_ptr<SceneLoader> loader_ = nullptr;
@@ -28,4 +27,6 @@ private:
   std::vector<std::weak_ptr<EnvironmentObject>> enviromentObjs_;
 
   std::unique_ptr<PlayerManager> playerManager_ = nullptr;
+
+  std::unique_ptr<EnemyManager> enemyManager_ = nullptr;
 };
