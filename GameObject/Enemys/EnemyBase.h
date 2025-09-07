@@ -19,7 +19,16 @@ public:
   /// </summary>
   virtual void OnCollision(std::weak_ptr<ObjectComponent> other) = 0;
 
+  void SetEffectSpawnFunc(
+      const std::function<void(const Math::Vector::Vec3 &)> &func) {
+    effectSpawn_ = func;
+  }
+
+  void Finalize() override { effectSpawn_(translate_); };
+
 private:
 protected:
+  std::function<void(const Math::Vector::Vec3 &)> effectSpawn_;
+
   std::unique_ptr<Rail> rail_ = nullptr;
 };
