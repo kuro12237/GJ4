@@ -15,6 +15,7 @@ public:
 		handle_ = handle;
 	}
 	void Update() {
+		ISelectUI::Update();
 		sprite_->Update();
 		WorldMatUpdate();
 	}

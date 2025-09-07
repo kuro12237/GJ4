@@ -20,7 +20,9 @@ public:
 	virtual void Update() {
 		if (!isAnimating_) { return; }
 
-		animationTimer_ += DeltaTime;
+		const float DELTA_TIME_60FPS = 1.0f / 60.0f; // 60FPS時の1フレームの時間
+		animationTimer_ += DELTA_TIME_60FPS;
+
 		float t = animationTimer_ / animationDuration_;
 
 		// tが1を超えないようにクランプ
@@ -70,7 +72,6 @@ protected:
 	bool isAnimating_ = false;
 	float animationTimer_ = 0.0f;
 	float animationDuration_ = 0.3f; // 0.3秒でスライド
-	float DeltaTime = 1.0f;
 
 	Math::Vector::Vec2 startPos_{};
 	Math::Vector::Vec2 targetPos_{};

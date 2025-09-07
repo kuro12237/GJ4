@@ -13,7 +13,7 @@ void SelectUI::Init() {
 	// ���O�̐ݒ�
 	SelectUI_[0]->SetName(VAR_NAME(SeletUI_GameState));
 	SelectUI_[1]->SetName(VAR_NAME(SeletUI_Tutorial));
-	SelectUI_[2]->SetName(VAR_NAME(SeletUI_GameEnd));
+	SelectUI_[2]->SetName(VAR_NAME(SeletUI_GameOver));
 
 	for (auto& ui : SelectUI_) {
 		ui->SetScale(Scale);
