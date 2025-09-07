@@ -9,6 +9,13 @@
 class TitleScene:public CLEYERA::Component::SceneComponent
 {
 public:
+
+	enum class State {
+		LOGO_SHOW,      // ロゴ表示中（入力待ち）
+		LOGO_ANIMATING, // ロゴがアニメーション中
+		SELECT_ACTIVE   // 選択肢が操作可能
+	};
+
 	TitleScene() {};
 
 	~TitleScene() {};
@@ -25,8 +32,6 @@ private:
 	std::unique_ptr<SubUI> subManager_ = nullptr;
 	std::unique_ptr<SelectUI> SelectManager_ = nullptr;
 
+	State currentState_ = State::LOGO_SHOW;
 
 };
-
-
-

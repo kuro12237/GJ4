@@ -48,8 +48,8 @@ private:
 	bool isChangeable_ = true; // 連打防止フラグ
 
 	// 画面内外の座標を定義
-	Math::Vector::Vec2 onScreenPos_ = { 640.0f, 360.0f }; // 画面中央
-	Math::Vector::Vec2 offScreenLeft_ = { -300.0f, 360.0f }; // 画面左外
-	Math::Vector::Vec2 offScreenRight_ = { 1580.0f, 360.0f };// 画面右外
+	Math::Vector::Vec2 onScreenPos_ = { 640.0f, 350.0f }; // 画面中央
+	Math::Vector::Vec2 offScreenLeft_ = { -300.0f, 350.0f }; // 画面左外
+	Math::Vector::Vec2 offScreenRight_ = { 1580.0f, 350.0f };// 画面右外
 };
 

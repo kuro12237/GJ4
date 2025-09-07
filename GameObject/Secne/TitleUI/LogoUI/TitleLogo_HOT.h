@@ -15,6 +15,7 @@ public:
 		handle_ = handle;
 	}
 	void Update() {
+		ITitleLogo::Update();
 		sprite_->Update();
 		WorldMatUpdate();
 	}
