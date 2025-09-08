@@ -37,6 +37,9 @@
     <ClCompile Include="GameObject\Util\Random\RandomGenerator.cpp" />
     <ClCompile Include="GameObject\GamePlayUI\back\TemperatureBackUI.cpp" />
     <ClCompile Include="GameObject\GamePlayUI\GameUI.cpp" />
+    <ClCompile Include="GameObject\GamePlayUI\GamePlayUIBase.cpp" />
+    <ClCompile Include="GameObject\GamePlayUI\gauge\TemperatureGauge.cpp" />
+    <ClCompile Include="GameObject\GamePlayUI\gaugeMarking\TemperatureGaugeMarking.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Enemys\EnemyBase.h" />
@@ -72,5 +75,7 @@
     <ClInclude Include="GameObject\GamePlayUI\GamePlayUIBase.h" />
     <ClInclude Include="GameObject\GamePlayUI\back\TemperatureBackUI.h" />
     <ClInclude Include="GameObject\GamePlayUI\GameUI.h" />
+    <ClInclude Include="GameObject\GamePlayUI\gauge\TemperatureGauge.h" />
+    <ClInclude Include="GameObject\GamePlayUI\gaugeMarking\TemperatureGaugeMarking.h" />
   </ItemGroup>
 </Project>

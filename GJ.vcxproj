@@ -137,8 +137,11 @@
     <ClCompile Include="GameObject\Enemys\EnemyCore\EnemyTakanori.cpp" />
     <ClCompile Include="GameObject\Enemys\EnemyManager.cpp" />
     <ClCompile Include="GameObject\Enemys\HitEffect\HitEffect.cpp" />
+    <ClCompile Include="GameObject\GamePlayUI\GamePlayUIBase.cpp" />
     <ClCompile Include="GameObject\GamePlayUI\GameUI.cpp" />
     <ClCompile Include="GameObject\GamePlayUI\back\TemperatureBackUI.cpp" />
+    <ClCompile Include="GameObject\GamePlayUI\gaugeMarking\TemperatureGaugeMarking.cpp" />
+    <ClCompile Include="GameObject\GamePlayUI\gauge\TemperatureGauge.cpp" />
     <ClCompile Include="GameObject\Paramerter\ParamBase.cpp" />
     <ClCompile Include="GameObject\Player\Player.cpp" />
     <ClCompile Include="GameObject\Player\PlayerBullet\PlayerBullet.cpp" />
@@ -162,6 +165,8 @@
     <ClInclude Include="GameObject\Enemys\HitEffect\HitEffect.h" />
     <ClInclude Include="GameObject\GamePlayUI\GamePlayUIBase.h" />
     <ClInclude Include="GameObject\GamePlayUI\GameUI.h" />
+    <ClInclude Include="GameObject\GamePlayUI\gaugeMarking\TemperatureGaugeMarking.h" />
+    <ClInclude Include="GameObject\GamePlayUI\gauge\TemperatureGauge.h" />
     <ClInclude Include="GameObject\GamePlayUI\Temperature.h" />
     <ClInclude Include="GameObject\GamePlayUI\back\TemperatureBackUI.h" />
     <ClInclude Include="GameObject\Paramerter\ParamBase.h" />

@@ -6,10 +6,10 @@ void ParamBase::CalcTemperature(const Math::Vector::Vec3 &pos) {
 
   ImGui::Text("temperature::%f", temperature_);
   if (pos.x <= 0.0f) {
-    temperature_ += 0.1f;
+    temperature_ += temperatureSpeed_;
 
   } else {
-    temperature_ -= 0.1f;
+    temperature_ -= temperatureSpeed_;
   }
 
   ImGui::End();

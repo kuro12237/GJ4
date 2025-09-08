@@ -15,6 +15,12 @@ void Player::Init() {
   this->SetValue<float>("speed", speed_);
   speed_ = this->GetValue<float>("speed");
 
+  this->SetValue<float>("temperatureSpeed", temperatureSpeed_);
+  temperatureSpeed_ = this->GetValue<float>("temperatureSpeed");
+
+  auto json = CLEYERA::Manager::GlobalVariables::GetInstance();
+  json->SaveFile(name_);
+
   this->isGravity_ = false;
   this->isTerrainHit_ = false;
 
@@ -27,6 +33,7 @@ void Player::Update() {
 
 #ifdef _DEBUG
 
+   
   this->ImGuiUpdate();
 
 #endif // _DEBUG
@@ -37,12 +44,23 @@ void Player::Update() {
   TransformUpdate();
 }
 
+void Player::ImGuiUpdate() {
+
+  if (name_ == "") {
+    return;
+  }
+
+  if (ImGui::TreeNode(name_.c_str())) {
+
+    BaseParamImGuiDisply();
+    ImGui::SliderFloat("temperatureSpeed", &temperatureSpeed_, 0.0f, 0.1f);
+    ImGui::TreePop();
+  }
+}
+
 void Player::Control() {
 
-   
   float zToPos = translate_.z - zCenter_;
-
-
 
   Math::Vector::Vec2 joyPos =
       CLEYERA::Manager::InputManager::GetInstance()->JoyLPos();
@@ -54,10 +72,7 @@ void Player::Control() {
                                    (joyPos.y * speed_)};
     force_ = moveDir_;
 
- 
     force_ = moveDir_;
-
-  
   }
   // --- Z方向の範囲制御 ---
   if (zToPos > heightMinMax_) {
@@ -68,7 +83,7 @@ void Player::Control() {
     force_.z = 0.0f;
   }
 
-   // --- X方向の範囲制御 ---
+  // --- X方向の範囲制御 ---
   if (translate_.x > widthMinMax_) {
     translate_.x = widthMinMax_;
     force_.x = 0.0f;
@@ -76,5 +91,4 @@ void Player::Control() {
     translate_.x = -widthMinMax_;
     force_.x = 0.0f;
   }
-
 }
