@@ -1,5 +1,5 @@
 #include "TitleLogo.h"
-#include "../../../../Engine/GameEngine/CLEYERA/pch/Pch.h"
+#include "CLEYERA/CLEYERA.h"
 
 void TitleLog::Init() {
 	//ƒ^ƒCƒgƒ‹ƒƒS‚Í“ñ‚Â

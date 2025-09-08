@@ -1,5 +1,5 @@
 #include "SelectUI.h"
-#include "../../../../Engine/GameEngine/CLEYERA/pch/Pch.h"
+#include "CLEYERA/CLEYERA.h"
 
 void SelectUI::Init() {
 	//ƒ^ƒCƒgƒ‹ƒƒS‚Í“ñ‚Â
