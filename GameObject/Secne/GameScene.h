@@ -7,6 +7,8 @@
 #include"../Enemys/EnemyManager.h"
 #include "../Util/SceneLoader.h"
 
+#include"../GamePlayUI/GameUI.h"
+
 class GameScene : public CLEYERA::Component::SceneComponent {
 public:
   GameScene() {};
@@ -29,4 +31,6 @@ private:
   std::unique_ptr<PlayerManager> playerManager_ = nullptr;
 
   std::unique_ptr<EnemyManager> enemyManager_ = nullptr;
+
+  std::unique_ptr<GameUI> ui_ = nullptr;
 };

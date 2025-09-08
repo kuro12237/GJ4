@@ -19,6 +19,8 @@
     <ClCompile Include="GameObject\Secne\TitleUI\SelectUI\SelectUI.cpp" />
     <ClCompile Include="GameObject\Enemys\HitEffect\HitEffect.cpp" />
     <ClCompile Include="GameObject\Util\Random\RandomGenerator.cpp" />
+    <ClCompile Include="GameObject\GamePlayUI\back\TemperatureBackUI.cpp" />
+    <ClCompile Include="GameObject\GamePlayUI\GameUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Enemys\EnemyBase.h" />
@@ -50,5 +52,9 @@
     <ClInclude Include="GameObject\WorldSpeed\WorldSpeed.h" />
     <ClInclude Include="GameObject\Enemys\HitEffect\HitEffect.h" />
     <ClInclude Include="GameObject\Util\Random\RandomGenerator.h" />
+    <ClInclude Include="GameObject\GamePlayUI\Temperature.h" />
+    <ClInclude Include="GameObject\GamePlayUI\GamePlayUIBase.h" />
+    <ClInclude Include="GameObject\GamePlayUI\back\TemperatureBackUI.h" />
+    <ClInclude Include="GameObject\GamePlayUI\GameUI.h" />
   </ItemGroup>
 </Project>
