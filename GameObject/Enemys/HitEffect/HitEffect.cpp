@@ -21,7 +21,7 @@ void HitEnemyEffect::EffectModelSelector(const int &num) {
                                         "NAMAasi"};
 
   //auto path = filePathMap_[static_cast<EffectName>(num)];
-  auto path = filePathMap_[EffectName::NamaAsi];
+  auto path = filePathMap_[EffectName::Miwaku];
 
   uint32_t modelHandle = modelManager_->LoadModel(
       path.directory_, path.name_);

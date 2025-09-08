@@ -13,6 +13,7 @@ public:
   void Init() override;
   void Update() override;
 
+  void ImGuiUpdate() override;
   #pragma region Get
 
   float &GetZCenter() { return zCenter_; }

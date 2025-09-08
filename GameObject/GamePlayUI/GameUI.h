@@ -1,6 +1,8 @@
 #pragma once
 #include "Temperature.h"
 #include "back/TemperatureBackUI.h"
+#include "gauge/TemperatureGauge.h"
+#include"gaugeMarking/TemperatureGaugeMarking.h"
 
 class GameUI {
 public:
@@ -13,8 +15,13 @@ public:
 
   void Draw2d();
 
-private:
+  void SetTemperatureParam(const float &num) { temperatureParam_ = &num; }
 
-	//温度計
+private:
+  const float *temperatureParam_ = nullptr;
+
+  // 温度計
   std::unique_ptr<TemperatureBackUI> temperatureBackUI_ = nullptr;
+  std::unique_ptr<TemperatureGauge> temperatureGaugeUI_ = nullptr;
+  std::unique_ptr<TemperatureGaugeMarkingUI> temperatureGaugeMarkingUI_ = nullptr;
 };

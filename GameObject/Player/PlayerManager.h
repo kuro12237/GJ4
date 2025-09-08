@@ -16,6 +16,8 @@ public:
 
   void SetWorld(const std::weak_ptr<WorldSetting> &w) { world_ = w; }
 
+  std::weak_ptr<Player> GetPlayer() { return player_; }
+
 private:
   std::weak_ptr<Player> player_;
   std::shared_ptr<PlayerCamera> camera_ = nullptr;
