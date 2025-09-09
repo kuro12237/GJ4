@@ -15,5 +15,5 @@ private:
 
 		float time_ = 0.0f;
 
-  float timerMax_ = 0.5f;
+  float timerMax_ = 1.0f;
 };
