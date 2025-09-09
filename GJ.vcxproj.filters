@@ -34,6 +34,7 @@
     <ClCompile Include="GameObject\Secne\GameOver.cpp" />
     <ClCompile Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyNoneState.cpp" />
     <ClCompile Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyMoveState.cpp" />
+    <ClCompile Include="GameObject\GamePlayStandbyUI\GamePlayStandbyUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Enemys\EnemyBase.h" />
@@ -83,5 +84,11 @@
     <ClInclude Include="GameObject\Enemys\EnemyCore\EnemyState\IEnemyState.h" />
     <ClInclude Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyNoneState.h" />
     <ClInclude Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyMoveState.h" />
+    <ClInclude Include="GameObject\GamePlayStandbyUI\GamePlayStandbyUI.h" />
+    <ClInclude Include="GameObject\GamePlayStandbyUI\number_1.h" />
+    <ClInclude Include="GameObject\GamePlayStandbyUI\number_2.h" />
+    <ClInclude Include="GameObject\GamePlayStandbyUI\number_3.h" />
+    <ClInclude Include="GameObject\GamePlayStandbyUI\number_GO.h" />
+    <ClInclude Include="GameObject\GamePlayStandbyUI\IGamePlayStandbyUI.h" />
   </ItemGroup>
 </Project>

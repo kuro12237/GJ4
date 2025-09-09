@@ -41,8 +41,14 @@ void GameScene::Init() {
           "Resources/Model/Terrain/", "terrain");
   CLEYERA::Manager::Terrain::GetInstance()->ChengeData(modelHandle);
 
+  standbyUI_ = std::make_unique<GamePlayStandbyUI>();
+  standbyUI_->Init();
+
   BlackScreenTransition::GetInstance()->StartFadeIn(2.0f, [this]() {
-      
+      standbyUI_->Start([this]() {
+          // カウントダウンが完了したら、ゲームプレイ状態に移行
+          this->currentState_ = State::Playing;
+          });
       });
 }
 
@@ -61,15 +67,30 @@ void GameScene::Update([[maybe_unused]] CLEYERA::Manager::SceneManager *ins) {
     return;
   }
   CLEYERA::Manager::ObjectManager::GetInstance();
-  playerManager_->Update();
-  enemyManager_->Update();
 
-  ui_->Update();
+
+  switch (currentState_)
+  {
+  case State::Standby:
+      standbyUI_->Update(); // カウントダウンの更新
+      break;
+  case State::Playing:
+      // ここに通常のゲームプレイの更新処理を書く
+      playerManager_->Update();
+      enemyManager_->Update();
+
+      ui_->Update();
+      break;
+  }
 }
 
 void GameScene::Draw2d() { 
     ui_->Draw2d();
 
+    // カウントダウン中はUIを描画
+    if (currentState_ == State::Standby) {
+        standbyUI_->Draw2d();
+    }
     BlackScreenTransition::GetInstance()->Draw2D();
 
 }
