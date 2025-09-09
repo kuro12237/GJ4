@@ -1,5 +1,8 @@
 #pragma once
 #include "../EnemyBase.h"
+#include"EnemyState/EnemyNoneState.h"
+#include"EnemyState/EnemyMoveState.h"
+
 
 class EnemyTakanori : public EnemyBase {
 public:
@@ -15,5 +18,10 @@ public:
   /// </summary>
   void OnCollision(std::weak_ptr<ObjectComponent> other) override;
 
+  void ChangeScene(std::unique_ptr<IEnemyState> state);
+
 private:
+
+	std::unique_ptr<IEnemyState> state_ = nullptr;
+
 };

@@ -18,6 +18,8 @@ void GameScene::Init() {
   playerManager_->SetWorld(worldSpeed_);
 
   enemyManager_ = std::make_unique<EnemyManager>();
+  enemyManager_->SetPlayerPos(
+      &playerManager_->GetPlayer().lock()->GetTranslate());
   enemyManager_->Init();
 
 

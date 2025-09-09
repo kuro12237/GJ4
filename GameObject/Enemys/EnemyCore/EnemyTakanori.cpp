@@ -27,12 +27,27 @@ void EnemyTakanori::Init() {
       GetCollider().lock());
   aabb->GetAABB_().max = {1.0f, 1.0f, 1.0f};
   aabb->GetAABB_().min = {-1.0f, -1.0f, -1.0f};
+
+  this->ChangeScene(std::make_unique<EnemyMoveState>());
+
 }
 
-void EnemyTakanori::Update() {}
+void EnemyTakanori::Update() {
+
+if (state_) {
+    state_->Update(this);
+  }
+}
 
 void EnemyTakanori::OnCollision(
     [[maybe_unused]] std::weak_ptr<ObjectComponent> other) {
-  
+
   SetMode(CLEYERA::Component::ObjectComponent::OBJ_MODE::REMOVE);
+}
+
+void EnemyTakanori::ChangeScene(std::unique_ptr<IEnemyState> state) {
+
+  state_ = std::move(state);
+  state_->SetPos(&this->translate_);
+  state_->Init(this);
 }

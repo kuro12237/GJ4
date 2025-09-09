@@ -135,6 +135,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyMoveState.cpp" />
+    <ClCompile Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyNoneState.cpp" />
     <ClCompile Include="GameObject\Enemys\EnemyCore\EnemyTakanori.cpp" />
     <ClCompile Include="GameObject\Enemys\EnemyManager.cpp" />
     <ClCompile Include="GameObject\Enemys\HitEffect\HitEffect.cpp" />
@@ -166,6 +168,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Enemys\EnemyBase.h" />
+    <ClInclude Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyMoveState.h" />
+    <ClInclude Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyNoneState.h" />
+    <ClInclude Include="GameObject\Enemys\EnemyCore\EnemyState\IEnemyState.h" />
     <ClInclude Include="GameObject\Enemys\EnemyCore\EnemyTakanori.h" />
     <ClInclude Include="GameObject\Enemys\EnemyManager.h" />
     <ClInclude Include="GameObject\Enemys\HitEffect\HitEffect.h" />
