@@ -28,6 +28,12 @@ void Player::Init() {
   zCenter_ = translate_.z;
   gameObject_->SetLayerNumber(1);
 
+  this->CreateCollider(ColliderType::AABB);
+
+  collider_->SetHitCallFunc([this](std::weak_ptr<ObjectComponent> other) {
+    this->OnCollision(other);
+  });
+
   this->ChangeState(std::make_unique<PlayerNone>());
 }
 
@@ -64,8 +70,6 @@ void Player::ImGuiUpdate() {
 
 void Player::ChangeState(std::unique_ptr<IPlayerState> state) {
 
-
-
   state_ = std::move(state);
   state_->SetForce(&force_);
   state_->SetPosition(&translate_);
@@ -76,16 +80,11 @@ void Player::ChangeState(std::unique_ptr<IPlayerState> state) {
 
 void Player::OnCollision(std::weak_ptr<ObjectComponent> other) {
 
+  auto it = other.lock();
 
+  if (it->GetCategory() == "PlayerBullet") {
+    return;
+  }
 
-  //auto it = other.lock();
-
-  //if (std::dynamic_pointer_cast<PlayerBullet>(it)) {
-  //  return;
-  //}
-
-
-  //
-  //this->ChangeState(std::make_unique<PlayerNone>());
-
+  this->ChangeState(std::make_unique<PlayerHitState>());
 }

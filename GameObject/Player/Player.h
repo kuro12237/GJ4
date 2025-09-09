@@ -5,7 +5,7 @@
 #include"PlayerState/PlayerAttack.h"
 #include"PlayerState/PlayerNone.h"
 
-#include"PlayerState/PlayerNone.h"
+#include"PlayerState/PlayerHitState.h"
 
 class PlayerBullet;
 /// <summary>

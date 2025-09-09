@@ -1,15 +1,61 @@
 #include "EnemyManager.h"
 
 void EnemyManager::Init() {
+  name_ = VAR_NAME(EnemyManager);
+  this->CreateJson(name_, "Resources/Configs/Entitiys/EnemyTakanori/");
 
-  SpawnEnemy({-5.0f, 3.0f, 110.0f});
-  SpawnEnemy({0.0f, 3.0f, 40.0f});
-  SpawnEnemy({5.0f, 3.0f, 90.0f});
-  SpawnEnemy({2.0f, 3.0f, 80.0f});
-  SpawnEnemy({-4.0f, 3.0f, 70.0f});
+  this->SetValue<int>("EnemyMax", enemyMax_);
+  enemyMax_ = this->GetValue<int>("EnemyMax");
+  auto json = CLEYERA::Manager::GlobalVariables::GetInstance();
+  //json->SaveFile(VAR_NAME(EnemyManager));
+
+  this->enemySpawnPos_.resize(enemyMax_);
+
+  for (size_t i = 0; i < static_cast<size_t>(enemyMax_); i++) {
+
+    this->SetValue<Math::Vector::Vec3>("EnemyPos" + std::to_string(i),
+                                       enemySpawnPos_[i]);
+    enemySpawnPos_[i] =
+        this->GetValue<Math::Vector::Vec3>("EnemyPos" + std::to_string(i));
+  }
+
+  json->SaveFile(VAR_NAME(EnemyManager));
 }
 
-void EnemyManager::Update() {}
+void EnemyManager::Update() {
+
+#ifdef _DEBUG
+
+  JsonCompornent::JsonImGuiUpdate();
+#endif // _DEBUG
+
+  // player の z 座標
+  float playerZ = this->playerPos_->z;
+
+  for (auto it = this->enemySpawnPos_.begin(); it != enemySpawnPos_.end();) {
+    float dz = std::abs(it->z - playerZ);
+    if (dz < 40.0f) {
+      SpawnEnemy(*it);
+      saveEnemySpawnPos_.push_back(*it);
+      it = enemySpawnPos_.erase(it); // spawn 済みの位置は消す
+    } else {
+      ++it;
+    }
+  }
+
+  for (auto &enemy : enemies_) {
+    auto it = enemy.lock();
+
+    if (!it)
+      return;
+
+    if (it->GetMode() ==
+        CLEYERA::Component::ObjectComponent::OBJ_MODE::REMOVE) {
+      SpawnEffect(it->GetTranslate());
+      killEnemyCount_++;
+    }
+  }
+}
 
 void EnemyManager::SpawnEnemy(const Math::Vector::Vec3 &pos) {
   auto objManager = CLEYERA::Manager::ObjectManager::GetInstance();
@@ -31,6 +77,8 @@ void EnemyManager::SpawnEffect(const Math::Vector::Vec3 &pos) {
   auto enemy = objManager->CreateObject<HitEnemyEffect>(
       VAR_NAME(HitEnemyEffect), std::make_shared<HitEnemyEffect>());
   enemy.lock()->SetSpownPos(pos);
-  
-  effects_.push_back(std::move(enemy));
+  if (enemy.lock()) {
+
+    effects_.push_back(std::move(enemy));
+  }
 }

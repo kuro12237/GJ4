@@ -42,7 +42,9 @@ void PlayerBullet::OnCollision(
   if (std::dynamic_pointer_cast<PlayerBullet>(it)) {
     return;
   }
-
+  if (it->GetCategory() == "Player") {
+    return;
+  }
     isDead_ = true;
 
   SetMode(OBJ_MODE::REMOVE);
