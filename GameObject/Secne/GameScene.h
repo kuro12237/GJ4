@@ -9,6 +9,9 @@
 
 #include"../GamePlayUI/GameUI.h"
 
+#include "BlackScreenTransition.h"
+
+
 class GameScene : public CLEYERA::Component::SceneComponent {
 public:
   GameScene() {};
