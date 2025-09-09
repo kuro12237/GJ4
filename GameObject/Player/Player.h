@@ -5,7 +5,9 @@
 #include"PlayerState/PlayerAttack.h"
 #include"PlayerState/PlayerNone.h"
 
+#include"PlayerState/PlayerNone.h"
 
+class PlayerBullet;
 /// <summary>
 /// プレイヤー
 /// </summary>
@@ -25,6 +27,11 @@ public:
 #pragma endregion
 
   void ChangeState(std::unique_ptr<IPlayerState> state);
+
+    /// <summary>
+  /// 衝突時コールバック
+  /// </summary>
+  void OnCollision(std::weak_ptr<ObjectComponent> other);
 
 private:
 

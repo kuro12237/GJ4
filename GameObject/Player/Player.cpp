@@ -73,3 +73,19 @@ void Player::ChangeState(std::unique_ptr<IPlayerState> state) {
   state_->SetSpeed(&speed_);
   state_->Init(this);
 }
+
+void Player::OnCollision(std::weak_ptr<ObjectComponent> other) {
+
+
+
+  //auto it = other.lock();
+
+  //if (std::dynamic_pointer_cast<PlayerBullet>(it)) {
+  //  return;
+  //}
+
+
+  //
+  //this->ChangeState(std::make_unique<PlayerNone>());
+
+}

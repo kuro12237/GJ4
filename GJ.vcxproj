@@ -207,11 +207,6 @@
     <ClInclude Include="GameObject\Util\SceneLoader.h" />
     <ClInclude Include="GameObject\WorldSpeed\WorldSpeed.h" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Engine\GameEngine\Engine.vcxproj">
-      <Project>{2e76c1f3-23e0-4603-89e6-4b2db16172d5}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
