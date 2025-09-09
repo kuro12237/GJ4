@@ -5,10 +5,10 @@ void TitleLog::Init() {
 	//タイトルロゴは二つ
 	TitleLogo_.resize(2);
 
-	//HOTLIMIT(タイトルロゴ上)
+	//HOTLIMIT(タイトルロゴ丁E
 	TitleLogo_[0] = std::make_shared<TitleLogo_HOT>();
 	TitleLogo_[0]->SetName(VAR_NAME(TitleLogo_HOT));
-	//WHITEBREATH(タイトルロゴ下)
+	//WHITEBREATH(タイトルロゴ丁E
 	TitleLogo_[1] = std::make_shared<TitleLogo_WHITE>();
 	TitleLogo_[1]->SetName(VAR_NAME(TitleLogo_WHITE));
 
