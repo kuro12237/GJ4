@@ -23,7 +23,7 @@ void TitleScene::Init() {
 
     // シーン開始時にフェードインを開始
     currentState_ = State::FADING_IN;
-    BlackScreenTransition::GetInstance()->StartFadeIn(1.0f, [this]() {
+    BlackScreenTransition::GetInstance()->StartFadeIn(2.0f, [this]() {
         // フェードインが終わったら、ロゴを表示する状態に移行
         this->currentState_ = State::LOGO_SHOW;
         });
@@ -92,7 +92,7 @@ void TitleScene::Update([[maybe_un_used]] CLEYERA::Manager::SceneManager* ins) {
         // Aボタンで選択を決定
         if (input->PushBotton(XINPUT_GAMEPAD_A)) {
 
-            bool shouldTransition = false;
+                bool shouldTransition = false;
 
             SelectUI::SelectItem current = SelectManager_->GetCurrentSelect();
 

@@ -5,6 +5,10 @@ void TitleLog::Init() {
 	//繧ｿ繧､繝医Ν繝ｭ繧ｴ縺ｯ莠後▽
 	TitleLogo_.resize(2);
 
+	//HOTLIMIT(タイトルロゴ丁E
+	TitleLogo_[0] = std::make_shared<TitleLogo_HOT>();
+	TitleLogo_[0]->SetName(VAR_NAME(TitleLogo_HOT));
+	//WHITEBREATH(タイトルロゴ丁E
 	//HOTLIMIT(繧ｿ繧､繝医Ν繝ｭ繧ｴ荳・
 	TitleLogo_[0] = std::make_shared<TitleLogo_HOT>();
 	TitleLogo_[0]->SetName(VAR_NAME(TitleLogo_HOT));

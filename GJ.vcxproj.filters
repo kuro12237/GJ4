@@ -29,6 +29,9 @@
     <ClCompile Include="GameObject\Secne\TitleUI\LogoUI\TitleLogo.cpp" />
     <ClCompile Include="GameObject\Secne\TitleUI\SubUI\SubUI_Manager.cpp" />
     <ClCompile Include="GameObject\Secne\TitleUI\SelectUI\SelectUI.cpp" />
+    <ClCompile Include="GameObject\Secne\TutorialScene.cpp" />
+    <ClCompile Include="GameObject\Secne\GameClear.cpp" />
+    <ClCompile Include="GameObject\Secne\GameOver.cpp" />
     <ClCompile Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyNoneState.cpp" />
     <ClCompile Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyMoveState.cpp" />
     <ClCompile Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyHitState.cpp" />
@@ -76,6 +79,9 @@
     <ClInclude Include="GameObject\Util\SceneLoader.h" />
     <ClInclude Include="GameObject\WorldSpeed\WorldSpeed.h" />
     <ClInclude Include="GameObject\Secne\BlackScreenTransition.h" />
+    <ClInclude Include="GameObject\Secne\TutorialScene.h" />
+    <ClInclude Include="GameObject\Secne\GameClear.h" />
+    <ClInclude Include="GameObject\Secne\GameOver.h" />
     <ClInclude Include="GameObject\Enemys\EnemyCore\EnemyState\IEnemyState.h" />
     <ClInclude Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyNoneState.h" />
     <ClInclude Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyMoveState.h" />

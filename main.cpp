@@ -2,6 +2,7 @@
 #include "GameObject/Secne/BlackScreenTransition.h"
 #include "GameObject/Secne/GameScene.h"
 #include "GameObject/Secne/TitleScene.h"
+#include "GameObject/Secne/TutorialScene.h"
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
@@ -18,6 +19,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
   sceneManager->RegisterScene<TitleScene>("TitleScene");
   sceneManager->RegisterScene<GameScene>("GameScene");
+  sceneManager->RegisterScene<TutorialScene>("TutorialScene");
+
 
   sceneManager->ChangeScene("TitleScene");
   // sceneManager->ChangeScene("GameScene");

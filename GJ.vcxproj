@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClCompile Include="GameObject\Enemys\EnemyCore\Bullet\EnemyBullet.cpp" />
     <ClCompile Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyHitState.cpp" />
+    <ClCompile Include="GameObject\Secne\GameClear.cpp" />
     <ClCompile Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyMoveState.cpp" />
     <ClCompile Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyNoneState.cpp" />
     <ClCompile Include="GameObject\Enemys\EnemyCore\EnemyTakanori.cpp" />
@@ -162,13 +163,16 @@
     <ClCompile Include="GameObject\Util\RailFunc\Rail.cpp" />
     <ClCompile Include="GameObject\Util\Random\RandomGenerator.cpp" />
     <ClCompile Include="GameObject\Util\SceneLoader.cpp" />
+    <ClCompile Include="GameObject\Secne\GameOver.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="GameObject\Secne\TitleScene.cpp" />
     <ClCompile Include="GameObject\Secne\TitleUI\LogoUI\TitleLogo.cpp" />
     <ClCompile Include="GameObject\Secne\TitleUI\SubUI\SubUI_Manager.cpp" />
     <ClCompile Include="GameObject\Secne\TitleUI\SelectUI\SelectUI.cpp" />
+    <ClCompile Include="GameObject\Secne\TutorialScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameObject\Secne\GameClear.h" />
     <ClInclude Include="GameObject\Enemys\EnemyBase.h" />
     <ClInclude Include="GameObject\Enemys\EnemyCore\Bullet\EnemyBullet.h" />
     <ClInclude Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyHitState.h" />
@@ -215,6 +219,8 @@
     <ClInclude Include="GameObject\Util\Random\RandomGenerator.h" />
     <ClInclude Include="GameObject\Util\SceneLoader.h" />
     <ClInclude Include="GameObject\WorldSpeed\WorldSpeed.h" />
+    <ClInclude Include="GameObject\Secne\TutorialScene.h" />
+    <ClInclude Include="GameObject\Secne\GameOver.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
