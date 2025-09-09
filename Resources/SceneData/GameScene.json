@@ -2,57 +2,36 @@
     "name": "scene",
     "objects": [
         {
-            "type": "LIGHT",
-            "name": "Light",
-            "transform": {
-                "translate": [
-                    4.076245307922363,
-                    1.0054539442062378,
-                    5.903861999511719
-                ],
-                "rotate": [
-                    37.26104736328125,
-                    3.1637091636657715,
-                    106.93632507324219
-                ],
-                "scale": [
-                    1.0,
-                    0.9999999403953552,
-                    1.0
-                ]
-            }
-        },
-        {
             "type": "CAMERA",
             "name": "Camera",
             "transform": {
                 "translate": [
-                    7.358891487121582,
-                    -6.925790786743164,
+                    32.379119873046875,
+                    -6.92578125,
                     4.958309173583984
                 ],
                 "rotate": [
                     63.559295654296875,
-                    2.2983238068263745e-07,
-                    46.69194412231445
+                    1.8811537074725493e-06,
+                    46.69194030761719
                 ],
                 "scale": [
-                    1.0,
-                    1.0,
-                    1.0
+                    2.9754638671875,
+                    1.6222010850906372,
+                    2.8328042030334473
                 ]
             }
         },
         {
             "type": "MESH",
-            "name": "Floor",
-            "file_name": "Floor",
-            "Directory_name": "Resources/Model/Floor",
+            "name": "floor",
+            "file_name": "floor",
+            "Directory_name": "resources/Model/floor",
             "ModelFileType": "obj",
             "DrawType": "Normal",
             "transform": {
                 "translate": [
-                    0.0,
+                    -4.76837158203125e-07,
                     0.0,
                     0.0
                 ],
@@ -62,9 +41,317 @@
                     0.0
                 ],
                 "scale": [
-                    5.0,
-                    5.0,
+                    4.400000095367432,
+                    1.0,
                     1.0
+                ]
+            },
+            "gravity_Flag": false
+        },
+        {
+            "type": "MESH",
+            "name": "floor.001",
+            "file_name": "floor",
+            "Directory_name": "resources/Model/floor",
+            "ModelFileType": "obj",
+            "DrawType": "Normal",
+            "transform": {
+                "translate": [
+                    -4.76837158203125e-07,
+                    80.0,
+                    0.0
+                ],
+                "rotate": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    4.400000095367432,
+                    1.0,
+                    1.0
+                ]
+            },
+            "gravity_Flag": false
+        },
+        {
+            "type": "MESH",
+            "name": "floor.002",
+            "file_name": "floor",
+            "Directory_name": "resources/Model/floor",
+            "ModelFileType": "obj",
+            "DrawType": "Normal",
+            "transform": {
+                "translate": [
+                    -4.76837158203125e-07,
+                    160.0,
+                    0.0
+                ],
+                "rotate": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    4.400000095367432,
+                    1.0,
+                    1.0
+                ]
+            },
+            "gravity_Flag": false
+        },
+        {
+            "type": "MESH",
+            "name": "floor.003",
+            "file_name": "floor",
+            "Directory_name": "resources/Model/floor",
+            "ModelFileType": "obj",
+            "DrawType": "Normal",
+            "transform": {
+                "translate": [
+                    -4.76837158203125e-07,
+                    240.0,
+                    0.0
+                ],
+                "rotate": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    4.400000095367432,
+                    1.0,
+                    1.0
+                ]
+            },
+            "gravity_Flag": false
+        },
+        {
+            "type": "MESH",
+            "name": "floor.004",
+            "file_name": "floor",
+            "Directory_name": "resources/Model/floor",
+            "ModelFileType": "obj",
+            "DrawType": "Normal",
+            "transform": {
+                "translate": [
+                    -4.76837158203125e-07,
+                    320.0,
+                    0.0
+                ],
+                "rotate": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    4.400000095367432,
+                    1.0,
+                    1.0
+                ]
+            },
+            "gravity_Flag": false
+        },
+        {
+            "type": "MESH",
+            "name": "floor.005",
+            "file_name": "floor",
+            "Directory_name": "resources/Model/floor",
+            "ModelFileType": "obj",
+            "DrawType": "Normal",
+            "transform": {
+                "translate": [
+                    -4.76837158203125e-07,
+                    400.0,
+                    0.0
+                ],
+                "rotate": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    4.400000095367432,
+                    1.0,
+                    1.0
+                ]
+            },
+            "gravity_Flag": false
+        },
+        {
+            "type": "MESH",
+            "name": "floor.006",
+            "file_name": "floor",
+            "Directory_name": "resources/Model/floor",
+            "ModelFileType": "obj",
+            "DrawType": "Normal",
+            "transform": {
+                "translate": [
+                    -4.76837158203125e-07,
+                    880.0,
+                    0.0
+                ],
+                "rotate": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    4.400000095367432,
+                    1.0,
+                    1.0
+                ]
+            },
+            "gravity_Flag": false
+        },
+        {
+            "type": "MESH",
+            "name": "floor.007",
+            "file_name": "floor",
+            "Directory_name": "resources/Model/floor",
+            "ModelFileType": "obj",
+            "DrawType": "Normal",
+            "transform": {
+                "translate": [
+                    -4.76837158203125e-07,
+                    800.0,
+                    0.0
+                ],
+                "rotate": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    4.400000095367432,
+                    1.0,
+                    1.0
+                ]
+            },
+            "gravity_Flag": false
+        },
+        {
+            "type": "MESH",
+            "name": "floor.008",
+            "file_name": "floor",
+            "Directory_name": "resources/Model/floor",
+            "ModelFileType": "obj",
+            "DrawType": "Normal",
+            "transform": {
+                "translate": [
+                    -4.76837158203125e-07,
+                    720.0,
+                    0.0
+                ],
+                "rotate": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    4.400000095367432,
+                    1.0,
+                    1.0
+                ]
+            },
+            "gravity_Flag": false
+        },
+        {
+            "type": "MESH",
+            "name": "floor.009",
+            "file_name": "floor",
+            "Directory_name": "resources/Model/floor",
+            "ModelFileType": "obj",
+            "DrawType": "Normal",
+            "transform": {
+                "translate": [
+                    -4.76837158203125e-07,
+                    640.0,
+                    0.0
+                ],
+                "rotate": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    4.400000095367432,
+                    1.0,
+                    1.0
+                ]
+            },
+            "gravity_Flag": false
+        },
+        {
+            "type": "MESH",
+            "name": "floor.010",
+            "file_name": "floor",
+            "Directory_name": "resources/Model/floor",
+            "ModelFileType": "obj",
+            "DrawType": "Normal",
+            "transform": {
+                "translate": [
+                    -4.76837158203125e-07,
+                    560.0,
+                    0.0
+                ],
+                "rotate": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    4.400000095367432,
+                    1.0,
+                    1.0
+                ]
+            },
+            "gravity_Flag": false
+        },
+        {
+            "type": "MESH",
+            "name": "floor.011",
+            "file_name": "floor",
+            "Directory_name": "resources/Model/floor",
+            "ModelFileType": "obj",
+            "DrawType": "Normal",
+            "transform": {
+                "translate": [
+                    -4.76837158203125e-07,
+                    480.0,
+                    0.0
+                ],
+                "rotate": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    4.400000095367432,
+                    1.0,
+                    1.0
+                ]
+            },
+            "gravity_Flag": false
+        },
+        {
+            "type": "CAMERA",
+            "name": "Camera.001",
+            "transform": {
+                "translate": [
+                    32.379119873046875,
+                    473.07421875,
+                    4.958309173583984
+                ],
+                "rotate": [
+                    63.559295654296875,
+                    1.8811537074725493e-06,
+                    46.69194030761719
+                ],
+                "scale": [
+                    2.9754638671875,
+                    1.6222010850906372,
+                    2.8328042030334473
                 ]
             }
         }
