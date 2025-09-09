@@ -26,6 +26,10 @@ void TitleLog::Init() {
 
 void TitleLog::Update()
 {
+	if (TitleLogo_.empty()) {
+		return;
+	}
+
 	for (auto Logo : TitleLogo_) {
 		Logo->Update();
 	//	Logo->SetScale({ Scale });

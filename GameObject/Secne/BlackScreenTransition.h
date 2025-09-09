@@ -10,13 +10,15 @@ public:
     void Update();
     void Draw2D();
 
+    void Finalize();
+
     void StartFadeOut(float duration, std::function<void()> on_finished = nullptr);
     void StartFadeIn(float duration, std::function<void()> on_finished = nullptr);
     bool IsActive() const { return isActive_; }
 
 private:
     BlackScreenTransition() = default;
-    ~BlackScreenTransition() = default;
+    ~BlackScreenTransition();
     BlackScreenTransition(const BlackScreenTransition&) = delete;
     BlackScreenTransition& operator=(const BlackScreenTransition&) = delete;
 

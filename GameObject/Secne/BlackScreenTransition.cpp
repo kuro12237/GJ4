@@ -48,7 +48,10 @@ void BlackScreenTransition::StartFadeIn(float duration, std::function<void()> on
     isActive_ = true;
     onFinishedCallback_ = on_finished; // 完了時の処理を保存する
     this->sprite_->ColorData().color_={ 0.0f, 0.0f, 0.0f, 1.0f };
+
 }
+
+BlackScreenTransition::~BlackScreenTransition(){}
 
 void BlackScreenTransition::Update() {
     if (!isActive_) return;
@@ -75,4 +78,10 @@ void BlackScreenTransition::Draw2D() {
     if (sprite_ && this->sprite_->ColorData().color_.w > 0.0f) {
         this->Draw();
     }
+}
+
+void BlackScreenTransition::Finalize(){
+    SpriteComponent::~SpriteComponent();
+    // コールバックもクリアしておく
+    onFinishedCallback_ = nullptr;
 }

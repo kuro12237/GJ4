@@ -1,6 +1,8 @@
 #include "CLEYERA/CLEYERA.h"
 #include "GameObject/Secne/GameScene.h"
 #include "GameObject/Secne/TitleScene.h"
+#include "GameObject/Secne/BlackScreenTransition.h"
+
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
@@ -21,6 +23,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
   sceneManager->ChangeScene("TitleScene");
  
   engine_->Run();
+  BlackScreenTransition::GetInstance()->Finalize();
   engine_->Finalize();
 
   return 0;
