@@ -21,7 +21,14 @@ public:
 private:
   enum class EffectName { Sokai_Jp, Miwaku, NamaAsi, sokai };
 
-  
+  float EaseInBack(float x) {
+    return (x == 0.0f) ? 0.0f : std::pow(2.0f, 10.0f * x - 10.0f);
+  }
+
+  float LerpEase(float start, float end, float t) {
+    float easedT = EaseInBack(t);
+    return start + (end - start) * easedT;
+  }
 
   void EffectModelSelector(const int &num);
 

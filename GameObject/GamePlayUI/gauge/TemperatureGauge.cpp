@@ -16,20 +16,7 @@ void TemperatureGauge::Init() {
 void TemperatureGauge::Update() {
   this->size_ = texManager_->GetTexData(handle_).lock()->GetSize();
 
-  if (ImGui::TreeNode(VAR_NAME(TemperatureGauge))) {
 
-    this->TransformImGuiUpdate();
-    ImGui::DragFloat2("size", &size_.x);
-    ImGui::ColorEdit4("c", &sprite_->ColorData().color_.x);
-    ImGui::DragFloat2("LT", &this->LeftTop_.x, 0.01f, 0.0f, 1.0f);
-    ImGui::DragFloat2("LB", &this->LeftBottom_.x, 0.01f, 0.0f, 1.0f);
-    ImGui::DragFloat2("RT", &this->RightTop_.x, 0.01f, 0.0f, 1.0f);
-    ImGui::DragFloat2("RB", &this->RightBottom_.x, 0.01f, 0.0f, 1.0f);
-
-    ImGui::SliderFloat("factor", &this->factor_, -1.0f, 1.0f);
-
-    ImGui::TreePop();
-  }
 
   if (*temperatureParam_ >= 1.0f || *temperatureParam_ <= -1.0f) {
     return;

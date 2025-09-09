@@ -85,6 +85,11 @@ void Player::OnCollision(std::weak_ptr<ObjectComponent> other) {
   if (it->GetCategory() == "PlayerBullet") {
     return;
   }
+  if (it->GetCategory() == "EnemyTakanori") {
+    return;
+  }
+  if (it->GetCategory() == "EnemyBullet") {
 
-  this->ChangeState(std::make_unique<PlayerHitState>());
+    this->ChangeState(std::make_unique<PlayerHitState>());
+  }
 }

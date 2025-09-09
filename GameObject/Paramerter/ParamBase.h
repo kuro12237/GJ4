@@ -10,7 +10,7 @@ public:
 
 private:
 protected:
-  void CalcTemperature(const Math::Vector::Vec3 &pos);
+  bool CalcTemperature(const Math::Vector::Vec3 &pos);
 
   float temperature_ = 0.0f;
   float temperatureSpeed_ = 0.005f;
