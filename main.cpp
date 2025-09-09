@@ -1,4 +1,4 @@
-#include "CLEYERA/CLEYERA.h"
+#include "CLEYERA.h"
 #include "GameObject/Secne/GameScene.h"
 #include "GameObject/Secne/TitleSecne.h"
 
@@ -22,7 +22,10 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
   sceneManager->ChangeScene("GameScene");
  
  
-  engine_->Run();
+  while (CLEYERA::Base::Win::WinApp::GetInstance()->WinMsg()) {
+    engine_->Run();
+  };
+
   engine_->Finalize();
 
   return 0;

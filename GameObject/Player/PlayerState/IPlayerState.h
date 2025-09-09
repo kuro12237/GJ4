@@ -1,0 +1,34 @@
+#pragma once
+#include "CLEYERA.h"
+
+class Player;
+class IPlayerState {
+public:
+  IPlayerState() {};
+  virtual ~IPlayerState() {};
+
+  virtual void Init([[maybe_unused]] Player *ins) = 0;
+
+  virtual void Update(Player *ins = nullptr) = 0;
+  void SetPosition(Math::Vector::Vec3 *pos) { translate_ = pos; }
+  void SetForce(Math::Vector::Vec3 *pos) { force_ = pos; }
+  void SetZCenter(float *z) { zCenter_ = z; }
+  void SetSpeed(float *s) { speed_ = s; }
+
+private:
+protected:
+  void Control();
+
+  float widthMinMax_ = 9.0f;
+  float heightMinMax_ = 3.0f;
+
+  float *speed_ = nullptr;
+  float *zCenter_ = nullptr;
+
+ 
+  Math::Vector::Vec3 *translate_ = nullptr;
+  Math::Vector::Vec3 *force_ = nullptr;
+
+
+  void ChangeModel(uint32_t handle);
+};

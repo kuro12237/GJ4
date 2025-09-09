@@ -2,9 +2,6 @@
 #include "Compornent/SceneComponent.h"
 #include "pch/Pch.h"
 
-#include"Utility/Object/ObjectManager.h"
-#include"Utility/ColliderSystem/ColliderSystem.h"
-
 namespace CLEYERA {
 namespace Manager {
 

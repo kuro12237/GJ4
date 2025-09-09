@@ -29,10 +29,11 @@ void TemperatureBackUI::Update() {
     ImGui::TreePop();
   }
 
-  sprite_->ColorData().color_ = this->CalcColor(*this->temperatureParam_);
+  if (*temperatureParam_ <= 1.0f || *temperatureParam_ >= -1.0f) {
+
+    sprite_->ColorData().color_ = this->CalcColor(*this->temperatureParam_);
+  }
 
   sprite_->Update();
   WorldMatUpdate();
 }
-
-

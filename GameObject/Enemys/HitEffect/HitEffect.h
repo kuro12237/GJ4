@@ -1,6 +1,6 @@
 #pragma once
 #include "../../Util/Random/RandomGenerator.h"
-#include "CLEYERA/CLEYERA.h"
+#include "CLEYERA.h"
 
 struct EnemyModelPath {
   std::string directory_;

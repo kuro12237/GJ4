@@ -1,7 +1,7 @@
 #pragma once
 #include "../Paramerter/ParamBase.h"
 #include "../Util/RailFunc/Rail.h"
-#include "CLEYERA/CLEYERA.h"
+#include "CLEYERA.h"
 
 class EnemyBase : public CLEYERA::Component::ObjectComponent, public ParamBase {
 public:

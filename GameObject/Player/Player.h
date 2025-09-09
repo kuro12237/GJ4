@@ -1,6 +1,10 @@
 #pragma once
-#include "CLEYERA/CLEYERA.h"
+#include "CLEYERA.h"
 #include"../Paramerter/ParamBase.h"
+
+#include"PlayerState/PlayerAttack.h"
+#include"PlayerState/PlayerNone.h"
+
 
 /// <summary>
 /// プレイヤー
@@ -20,9 +24,9 @@ public:
 
 #pragma endregion
 
+  void ChangeState(std::unique_ptr<IPlayerState> state);
 
 private:
-  void Control();
 
   float widthMinMax_ = 9.0f;
   float heightMinMax_ = 3.0f;
@@ -30,4 +34,7 @@ private:
   float speed_ = 0.0f;
 
   float zCenter_ = 0.0f;
+
+  std::unique_ptr<IPlayerState> state_ = nullptr;
+
 };

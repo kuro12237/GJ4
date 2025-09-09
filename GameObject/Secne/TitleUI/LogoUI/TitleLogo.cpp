@@ -1,14 +1,14 @@
 #include "TitleLogo.h"
-#include "CLEYERA/CLEYERA.h"
+#include "CLEYERA.h"
 
 void TitleLog::Init() {
-	//ƒ^ƒCƒgƒ‹ƒƒS‚Í“ñ‚Â
+	//ã‚¿ã‚¤ãƒˆãƒ«ãƒ­ã‚´ã¯äºŒã¤
 	TitleLogo_.resize(2);
 
-	//HOTLIMIT(ƒ^ƒCƒgƒ‹ƒƒSã)
+	//HOTLIMIT(ã‚¿ã‚¤ãƒˆãƒ«ãƒ­ã‚´ä¸Š)
 	TitleLogo_[0] = std::make_shared<TitleLogo_HOT>();
 	TitleLogo_[0]->SetName(VAR_NAME(TitleLogo_HOT));
-	//WHITEBREATH(ƒ^ƒCƒgƒ‹ƒƒS‰º)
+	//WHITEBREATH(ã‚¿ã‚¤ãƒˆãƒ«ãƒ­ã‚´ä¸‹)
 	TitleLogo_[1] = std::make_shared<TitleLogo_WHITE>();
 	TitleLogo_[1]->SetName(VAR_NAME(TitleLogo_WHITE));
 

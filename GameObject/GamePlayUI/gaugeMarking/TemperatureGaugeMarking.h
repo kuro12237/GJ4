@@ -1,6 +1,6 @@
 #pragma once
 #include "../GamePlayUIBase.h"
-#include "CLEYERA/CLEYERA.h"
+#include "CLEYERA.h"
 
 class TemperatureGaugeMarkingUI : public GamePlayUIBase {
 public:
