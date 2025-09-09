@@ -13,16 +13,15 @@ public:
 
 	enum class State {
 		FADING_IN,          // シーン開始時のフェードイン待ち
-		LOGO_SHOW,		// ロゴ表示中（入力待ち）
-		LOGO_ANIMATING, // ロゴがアニメーション中
-		SELECT_ACTIVE,	// 選択肢が操作可能
-		FADING_OUT,		//フェードアウト
-		WAITING_FOR_FADE_OUT,
+		LOGO_SHOW,			// ロゴ表示中（入力待ち）
+		LOGO_ANIMATING,		// ロゴがアニメーション中
+		SELECT_ACTIVE,		// 選択肢が操作可能
+		WAITING_FOR_FADE_OUT, // フェードアウト完了待ち
 	};
 
 	TitleScene() {};
 
-	~TitleScene() {};
+	~TitleScene();
 
 	void Init() override;
 

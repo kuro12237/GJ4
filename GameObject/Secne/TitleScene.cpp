@@ -1,6 +1,16 @@
 #include "TitleScene.h"
 
+TitleScene::~TitleScene(){
+    LogoManager_.reset();
+    subManager_.reset();
+    SelectManager_.reset();
+}
+
 void TitleScene::Init() {
+
+    // 最初にトランジションの初期化を行う
+    BlackScreenTransition::GetInstance()->Init();
+
     LogoManager_ = std::make_unique<TitleLog>();
     LogoManager_->Init();
 
@@ -10,20 +20,41 @@ void TitleScene::Init() {
 
     SelectManager_ = std::make_unique<SelectUI>();
     SelectManager_->Init();
+
+    // シーン開始時にフェードインを開始
+    currentState_ = State::FADING_IN;
+    BlackScreenTransition::GetInstance()->StartFadeIn(1.0f, [this]() {
+        // フェードインが終わったら、ロゴを表示する状態に移行
+        this->currentState_ = State::LOGO_SHOW;
+        });
+
 }
 
 void TitleScene::Update([[maybe_un_used]] CLEYERA::Manager::SceneManager* ins) {
-    auto input = CLEYERA::Manager::InputManager::GetInstance();
-    auto sceneManager = CLEYERA::Manager::SceneManager::GetInstance();
-
 
     // 常に更新するものを先に呼ぶ
     LogoManager_->Update();
     subManager_->Update();
 
+    // 毎フレーム、トランジション（フェード処理）の更新を呼び出す
+    BlackScreenTransition::GetInstance()->Update();
+
+    // フェード中はプレイヤーの入力を受け付けないようにする
+    if (BlackScreenTransition::GetInstance()->IsActive()) {
+        return; // ここで処理を中断
+    }
+
+    auto input = CLEYERA::Manager::InputManager::GetInstance();
+    auto sceneManager = CLEYERA::Manager::SceneManager::GetInstance();
+
+
     // 現在の状態に応じて処理を切り替える
     switch (currentState_)
     {
+    case State::FADING_IN:
+        // コールバックが呼ばれるのを待つだけ（上のガード処理で入力は弾かれる）
+        break;
+
         // 状態：ロゴ表示中
     case State::LOGO_SHOW:
         // Aボタンが押されたら
@@ -58,51 +89,44 @@ void TitleScene::Update([[maybe_un_used]] CLEYERA::Manager::SceneManager* ins) {
             SelectManager_->OnDpadInput(-1);
         }
 
-        // Aボタン
+        // Aボタンで選択を決定
         if (input->PushBotton(XINPUT_GAMEPAD_A)) {
+
+            bool shouldTransition = false;
+
             SelectUI::SelectItem current = SelectManager_->GetCurrentSelect();
 
-            // 遷移先のシーン名を確定させる
             if (current == SelectUI::SelectItem::GameState) {
                 nextSceneName_ = "GameScene";
+                shouldTransition = true;
             }
             else if (current == SelectUI::SelectItem::Tutorial) {
-                nextSceneName_ = "TutorialScene"; // 例
+                nextSceneName_ = "TutorialScene"; // チュートリアルシーン名を指定
+                shouldTransition = true;
             }
             else if (current == SelectUI::SelectItem::GameOver) {
-                // ゲーム終了の場合はフェードさせずに直接終了させるなど、別の処理でも良い
-                return; // この例では何もしない
+
+                // ゲーム終了処理
+                return;
             }
 
-            // フェードアウトの準備
-            if (!nextSceneName_.empty()) {
-                fadeTimer_ = 0.0f;                // タイマーをリセット
-                currentState_ = State::FADING_OUT; // フェードアウト状態に移行
+            // シーン遷移が必要な場合
+            if (shouldTransition) {
+                currentState_ = State::WAITING_FOR_FADE_OUT;
+                // フェードアウトを開始
+                BlackScreenTransition::GetInstance()->StartFadeOut(1.0f, [=]() {
+                    sceneManager->ChangeScene(nextSceneName_);
+                    return;
+                    });
             }
         }
+        
         break;
-        // ★★★ フェードアウト状態の処理を追加 ★★★
-    case State::FADING_OUT:
-    { // case内で変数を宣言するためスコープを追加
-        const float DELTA_TIME_60FPS = 1.0f / 60.0f;
-        fadeTimer_ += DELTA_TIME_60FPS;
+    case State::WAITING_FOR_FADE_OUT:
 
-        // Alpha値を計算 (1.0f -> 0.0f)
-        float alpha = 1.0f - (fadeTimer_ / FADE_DURATION);
-        if (alpha < 0.0f) { alpha = 0.0f; }
-
-        // 全オブジェクトのAlpha値を設定
-        LogoManager_->SetAllAlphas(alpha);
-        SelectManager_->SetAllAlphas(alpha);
-        subManager_->SetAllAlphas(alpha); // subManagerも忘れずに
-
-        // フェードアウトが完了したらシーン遷移
-        if (fadeTimer_ >= FADE_DURATION) {
-            sceneManager->ChangeScene(nextSceneName_);
-        }
-    }
     break;
     }
+
 }
 
 void TitleScene::Draw2d() {
@@ -111,7 +135,9 @@ void TitleScene::Draw2d() {
     LogoManager_->Draw2D();
 
     // 選択肢がアクティブな時だけ描画する
-    if (currentState_ == State::SELECT_ACTIVE) {
+    if (currentState_ == State::SELECT_ACTIVE || currentState_ == State::WAITING_FOR_FADE_OUT) {
         SelectManager_->Draw2D();
     }
+
+    BlackScreenTransition::GetInstance()->Draw2D();
 }

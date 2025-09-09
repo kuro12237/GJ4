@@ -1,6 +1,8 @@
 #include "CLEYERA.h"
 #include "GameObject/Secne/GameScene.h"
 #include "GameObject/Secne/TitleScene.h"
+#include "GameObject/Secne/BlackScreenTransition.h"
+
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
