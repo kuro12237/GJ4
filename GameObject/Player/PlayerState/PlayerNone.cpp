@@ -3,8 +3,10 @@
 void PlayerNone::Init(Player *ins) {
 
   auto modelManager = CLEYERA::Manager::ModelManager::GetInstance();
-  uint32_t modelHandle = modelManager->LoadModel(
-      "Resources/Model/Player/Human_Nude", "Human_Nude");
+
+  uint32_t modelHandle =
+      modelManager->LoadModel("Resources/Model/Player/normal", "normal");
+
   ins->SetModelHandle(modelHandle);
 }
 

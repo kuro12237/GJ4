@@ -4,7 +4,7 @@ void PlayerAttack::Init([[maybe_unused]] Player *ins) {
 
   auto modelManager = CLEYERA::Manager::ModelManager::GetInstance();
   uint32_t modelHandle =
-      modelManager->LoadModel("Resources/Model/Player/normal", "normal");
+      modelManager->LoadModel("Resources/Model/Player/bulletmotion", "bulletmotion");
   ins->SetModelHandle(modelHandle);
 }
 

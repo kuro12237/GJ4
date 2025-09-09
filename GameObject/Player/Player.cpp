@@ -3,8 +3,8 @@
 void Player::Init() {
 
   this->category_ = VAR_NAME(Player);
-  uint32_t modelHandle = modelManager_->LoadModel(
-      "Resources/Model/Player/Human_Nude", "Human_Nude");
+  uint32_t modelHandle =
+      modelManager_->LoadModel("Resources/Model/Player/normal", "normal");
   this->SetModelHandle(modelHandle);
 
   CreateJsonSystem("Resources/Configs/Entitiys/Player/");
@@ -29,7 +29,6 @@ void Player::Init() {
   gameObject_->SetLayerNumber(1);
 
   this->ChangeState(std::make_unique<PlayerNone>());
-
 }
 
 void Player::Update() {
@@ -39,7 +38,6 @@ void Player::Update() {
   this->ImGuiUpdate();
 
 #endif // _DEBUG
-  
 
   ParamBase::CalcTemperature(translate_);
 
@@ -66,12 +64,12 @@ void Player::ImGuiUpdate() {
 
 void Player::ChangeState(std::unique_ptr<IPlayerState> state) {
 
-  if (!state)
-    return;
+
 
   state_ = std::move(state);
   state_->SetForce(&force_);
   state_->SetPosition(&translate_);
+  state_->SetZCenter(&zCenter_);
+  state_->SetSpeed(&speed_);
   state_->Init(this);
 }
-
