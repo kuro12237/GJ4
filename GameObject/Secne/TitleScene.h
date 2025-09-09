@@ -6,18 +6,18 @@
 #include "TitleUI/SelectUI/SelectUI.h"
 #include "BlackScreenTransition.h"
 
-
+	enum class State {
+  FADING_IN,            // ã‚·ãƒ¼ãƒ³é–‹å§‹æ™‚ã®ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¤ãƒ³å¾…ã¡
+  LOGO_SHOW,            // ãƒ­ã‚´è¡¨ç¤ºä¸­ï¼ˆå…¥åŠ›å¾…ã¡ï¼‰
+  LOGO_ANIMATING,       // ãƒ­ã‚´ãŒã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ä¸­
+  SELECT_ACTIVE,        // é¸æŠè‚¢ãŒæ“ä½œå¯èƒ½
+  WAITING_FOR_FADE_OUT, // ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆå®Œäº†å¾…ã¡
+};
 class TitleScene:public CLEYERA::Component::SceneComponent
 {
 public:
 
-	enum class State {
-		FADING_IN,          // ƒV[ƒ“ŠJn‚ÌƒtƒF[ƒhƒCƒ“‘Ò‚¿
-		LOGO_SHOW,			// ƒƒS•\¦’†i“ü—Í‘Ò‚¿j
-		LOGO_ANIMATING,		// ƒƒS‚ªƒAƒjƒ[ƒVƒ‡ƒ“’†
-		SELECT_ACTIVE,		// ‘I‘ğˆ‚ª‘€ì‰Â”\
-		WAITING_FOR_FADE_OUT, // ƒtƒF[ƒhƒAƒEƒgŠ®—¹‘Ò‚¿
-	};
+
 
 	TitleScene() {};
 
@@ -38,6 +38,6 @@ private:
 	State currentState_ = State::LOGO_SHOW;
 
 	float fadeTimer_ = 0.0f;
-	const float FADE_DURATION = 1.0f; // ƒtƒF[ƒh‚É‚©‚¯‚éŠÔi1•bj
-	std::string nextSceneName_ = "";    // ‘JˆÚæ‚ÌƒV[ƒ“–¼‚ğ•Û‚·‚é•Ï”
+	const float FADE_DURATION = 1.0f; // ãƒ•ã‚§ãƒ¼ãƒ‰ã«ã‹ã‘ã‚‹æ™‚é–“ï¼ˆ1ç§’ï¼‰
+	std::string nextSceneName_ = "";    // é·ç§»å…ˆã®ã‚·ãƒ¼ãƒ³åã‚’ä¿æŒã™ã‚‹å¤‰æ•°
 };

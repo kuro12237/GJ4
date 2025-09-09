@@ -21,8 +21,8 @@ public:
 			isAnimating_ = false;
 		}
 
-		currentPos_.x = AnimationUtil::Lerp(startPos_.x, targetPos_.x, t);
-		currentPos_.y = AnimationUtil::Lerp(startPos_.y, targetPos_.y, t);
+		currentPos_.x = Math::Vector::Func::Lerp<float>(startPos_.x, targetPos_.x, t);
+		currentPos_.y = Math::Vector::Func::Lerp<float>(startPos_.y, targetPos_.y, t);
 
 		this->SetTranslate(currentPos_);
 		
@@ -34,13 +34,13 @@ public:
 		animationDuration_ = duration;
 		animationTimer_ = 0.0f;
 		isAnimating_ = true;
-		this->SetTranslate(start); // 開始位置をセット
+		this->SetTranslate(start); // 髢句ｧ倶ｽ咲ｽｮ繧偵そ繝・ヨ
 	}
 
 	bool IsAnimating() const { return isAnimating_; }
 
 	virtual void SetAlpha(float alpha) {
-		// sprite_�̐F����ύX�BR,G,B��1.0f(��)�̂܂܁AAlpha�l�̂ݕύX����
+		// sprite_の色情報を変更。R,G,Bは1.0f(白)のまま、Alpha値のみ変更する
 		if (sprite_) {
 			this->sprite_->ColorData().color_={ 1.0f, 1.0f, 1.0f, alpha };
 		}
@@ -64,7 +64,7 @@ public:
 
 
 protected:
-	// ★★★★★ アニメーション用変数を追加 ★★★★★
+	// 笘・・笘・・笘・繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ逕ｨ螟画焚繧定ｿｽ蜉 笘・・笘・・笘・
 	bool isAnimating_ = false;
 	float animationTimer_ = 0.0f;
 	float animationDuration_ = 0.5f;

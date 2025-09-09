@@ -21,7 +21,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
   sceneManager->RegisterScene<GameScene>("GameScene");
 
   sceneManager->ChangeScene("TitleScene");
-  sceneManager->ChangeScene("GameScene");
+  //sceneManager->ChangeScene("GameScene");
  
  
   while (CLEYERA::Base::Win::WinApp::GetInstance()->WinMsg()) {
