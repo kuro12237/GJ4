@@ -22,7 +22,10 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
   sceneManager->ChangeScene("GameScene");
  
  
-  engine_->Run();
+  while (CLEYERA::Base::Win::WinApp::GetInstance()->WinMsg()) {
+    engine_->Run();
+  };
+
   engine_->Finalize();
 
   return 0;
