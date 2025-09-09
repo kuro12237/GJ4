@@ -1,5 +1,5 @@
 #pragma once
-#include"CLEYERA/CLEYERA.h"
+#include"CLEYERA.h"
 
 class WorldSetting {
 public:

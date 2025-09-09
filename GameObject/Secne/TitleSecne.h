@@ -1,5 +1,5 @@
 #pragma once
-#include "CLEYERA/CLEYERA.h"
+#include "CLEYERA.h"
 
 #include "TitleUI/LogoUI/TitleLogo.h"
 #include "TitleUI/SubUI/SubUI_Manager.h"

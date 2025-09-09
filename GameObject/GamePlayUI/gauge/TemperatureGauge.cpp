@@ -31,6 +31,10 @@ void TemperatureGauge::Update() {
     ImGui::TreePop();
   }
 
+  if (*temperatureParam_ >= 1.0f || *temperatureParam_ <= -1.0f) {
+    return;
+  }
+
   float normal = (*this->temperatureParam_ + 1.0f) / 2.0f;
 
   float minUV = 0.13f;
