@@ -20,6 +20,8 @@ public:
 
   void Draw2d() override;
 
+  void Finalize() override;
+
 private:
  
   std::shared_ptr<WorldSetting> worldSpeed_ = nullptr;

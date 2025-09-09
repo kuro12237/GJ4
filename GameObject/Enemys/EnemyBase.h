@@ -24,7 +24,9 @@ public:
     effectSpawn_ = func;
   }
 
-  void Finalize() override { effectSpawn_(translate_); };
+  void Finalize() override {
+  
+  };
 
 private:
 protected:

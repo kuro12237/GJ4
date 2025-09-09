@@ -33,6 +33,6 @@ void EnemyTakanori::Update() {}
 
 void EnemyTakanori::OnCollision(
     [[maybe_unused]] std::weak_ptr<ObjectComponent> other) {
-
+  
   SetMode(CLEYERA::Component::ObjectComponent::OBJ_MODE::REMOVE);
 }

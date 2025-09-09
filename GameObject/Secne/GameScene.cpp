@@ -2,6 +2,7 @@
 
 void GameScene::Init() {
 
+  CLEYERA::Manager::ObjectManager::GetInstance()->Clear();
   // ファイル
   loader_ = std::make_unique<SceneLoader>();
   loader_->LoadSceneData("GameScene");
@@ -41,7 +42,7 @@ void GameScene::Update([[maybe_unused]] CLEYERA::Manager::SceneManager *ins) {
     ins->ChangeScene("GameScene");
     return;
   }
-
+  CLEYERA::Manager::ObjectManager::GetInstance();
   playerManager_->Update();
   enemyManager_->Update();
 
@@ -49,3 +50,5 @@ void GameScene::Update([[maybe_unused]] CLEYERA::Manager::SceneManager *ins) {
 }
 
 void GameScene::Draw2d() { ui_->Draw2d(); }
+
+void GameScene::Finalize() {  }

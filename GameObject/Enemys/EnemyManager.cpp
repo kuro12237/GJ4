@@ -9,7 +9,20 @@ void EnemyManager::Init() {
   SpawnEnemy({-4.0f, 3.0f, 70.0f});
 }
 
-void EnemyManager::Update() {}
+void EnemyManager::Update() {
+
+  for (auto &enemy : enemies_) {
+    auto it = enemy.lock();
+
+    if (!it)
+      return;
+
+    if (it->GetMode() ==
+        CLEYERA::Component::ObjectComponent::OBJ_MODE::REMOVE) {
+      SpawnEffect(it->GetTranslate());
+    }
+  }
+}
 
 void EnemyManager::SpawnEnemy(const Math::Vector::Vec3 &pos) {
   auto objManager = CLEYERA::Manager::ObjectManager::GetInstance();
@@ -31,6 +44,8 @@ void EnemyManager::SpawnEffect(const Math::Vector::Vec3 &pos) {
   auto enemy = objManager->CreateObject<HitEnemyEffect>(
       VAR_NAME(HitEnemyEffect), std::make_shared<HitEnemyEffect>());
   enemy.lock()->SetSpownPos(pos);
-  
-  effects_.push_back(std::move(enemy));
+  if (enemy.lock()) {
+
+    effects_.push_back(std::move(enemy));
+  }
 }
