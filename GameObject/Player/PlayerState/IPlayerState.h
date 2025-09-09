@@ -7,7 +7,7 @@ public:
   IPlayerState() {};
   virtual ~IPlayerState() {};
 
-  virtual void Init() = 0;
+  virtual void Init([[maybe_unused]] Player *ins) = 0;
 
   virtual void Update(Player *ins = nullptr) = 0;
   void SetPosition(Math::Vector::Vec3 *pos) { translate_ = pos; }

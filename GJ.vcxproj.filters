@@ -43,6 +43,7 @@
     <ClCompile Include="GameObject\Player\PlayerState\IPlayerState.cpp" />
     <ClCompile Include="GameObject\Player\PlayerState\PlayerAttack.cpp" />
     <ClCompile Include="GameObject\Player\PlayerState\PlayerHitState.cpp" />
+    <ClCompile Include="GameObject\Player\PlayerState\PlayerNone.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Enemys\EnemyBase.h" />

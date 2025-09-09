@@ -6,7 +6,7 @@ public:
   PlayerHitState() {};
   ~PlayerHitState() {};
 
-  void Init() override;
+  void Init([[maybe_unused]] Player *ins) override;
 
   void Update(Player *ins) override;
 

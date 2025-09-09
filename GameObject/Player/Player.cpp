@@ -72,6 +72,6 @@ void Player::ChangeState(std::unique_ptr<IPlayerState> state) {
   state_ = std::move(state);
   state_->SetForce(&force_);
   state_->SetPosition(&translate_);
-  state_->Init();
+  state_->Init(this);
 }
 

@@ -1,9 +1,21 @@
 #include "PlayerAttack.h"
 
-void PlayerAttack::Init() {}
+void PlayerAttack::Init([[maybe_unused]] Player *ins) {
+
+  auto modelManager = CLEYERA::Manager::ModelManager::GetInstance();
+  uint32_t modelHandle =
+      modelManager->LoadModel("Resources/Model/Player/normal", "normal");
+  ins->SetModelHandle(modelHandle);
+}
 
 void PlayerAttack::Update(Player *ins) {
-	//変更
-ins->GetGameObject().lock()->ChangeModel(0);
 
+  this->Control();
+
+  time_ += 1.0f / 60.0f;
+
+  if (time_ >= timerMax_) {
+    ins->ChangeState(std::make_unique<PlayerNone>());
+    return;
+  }
 }

@@ -4,7 +4,7 @@ void IPlayerState::ChangeModel(uint32_t handle) {}
 
 void IPlayerState::Control() {
 
-  auto &translate = *this->translate_;
+  auto translate = *this->translate_;
 
   float zToPos = translate.z - zCenter_;
 

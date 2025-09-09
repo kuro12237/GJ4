@@ -151,6 +151,7 @@
     <ClCompile Include="GameObject\Player\PlayerManager.cpp" />
     <ClCompile Include="GameObject\Player\PlayerState\PlayerAttack.cpp" />
     <ClCompile Include="GameObject\Player\PlayerState\PlayerHitState.cpp" />
+    <ClCompile Include="GameObject\Player\PlayerState\PlayerNone.cpp" />
     <ClCompile Include="GameObject\Secne\GameScene.cpp" />
     <ClCompile Include="GameObject\Util\EnvironmentObject\EnvironmentObject.cpp" />
     <ClCompile Include="GameObject\Util\RailFunc\Rail.cpp" />
