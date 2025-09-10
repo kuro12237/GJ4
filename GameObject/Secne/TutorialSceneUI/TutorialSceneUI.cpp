@@ -5,7 +5,7 @@ void TutorialSceneUI::Init(){
 
 	this->Create();
 	this->GetJsonName();
-	uint32_t handle = texManager_->LoadPngTex("10days_gameOver");
+	uint32_t handle = texManager_->LoadPngTex("sousa");
 	handle_ = handle;
 }
 
