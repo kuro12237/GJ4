@@ -51,7 +51,7 @@ PSOutput main(VSOutput input)
     
     float32_t3 deffiseColor = textureColor.rgb*gColor.color_.rgb * lightColor * cos * gDirectionLight.intencity;
     float32_t3 specularColor = lightColor * gDirectionLight.intencity * spec;
-    outColor.rgb = deffiseColor + specularColor;
+    outColor.rgb = textureColor.rgb * gColor.color_.rgb;
     outColor.a = textureColor.a*gColor.color_.a;
     output.color = outColor;
     

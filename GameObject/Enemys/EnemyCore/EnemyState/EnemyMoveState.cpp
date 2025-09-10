@@ -1,6 +1,12 @@
 #include "EnemyMoveState.h"
 
-void EnemyMoveState::Init(EnemyTakanori *ins) {}
+void EnemyMoveState::Init(EnemyTakanori *ins) {
+
+    auto modelManager = CLEYERA::Manager::ModelManager::GetInstance();
+  uint32_t modelHandle = modelManager->LoadModel(
+      "Resources/Model/Enemy/normalEnemy", "normalEnemy");
+  ins->SetModelHandle(modelHandle);
+}
 
 void EnemyMoveState::Update(EnemyTakanori *ins) {
 

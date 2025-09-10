@@ -30,8 +30,8 @@ public:
 private:
 
     enum class State {
-        Standby, // カウントダウン中
-        Playing  // ゲームプレイ中
+        Standby, // 繧ｫ繧ｦ繝ｳ繝医ム繧ｦ繝ｳ荳ｭ
+        Playing  // 繧ｲ繝ｼ繝繝励Ξ繧､荳ｭ
     };
     State currentState_ = State::Standby;
     std::unique_ptr<GamePlayStandbyUI> standbyUI_;
