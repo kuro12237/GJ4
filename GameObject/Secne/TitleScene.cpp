@@ -8,6 +8,8 @@ TitleScene::~TitleScene(){
 
 void TitleScene::Init() {
 
+     CLEYERA::Manager::ObjectManager::GetInstance()->Clear();
+
     // 最初にトランジションの初期化を行う
     BlackScreenTransition::GetInstance()->Init();
 

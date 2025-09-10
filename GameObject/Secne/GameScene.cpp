@@ -27,9 +27,6 @@ void GameScene::Init() {
   enemyManager_->SetWorldSetting(worldSpeed_);
   enemyManager_->Init();
 
-
-
-
   ui_ = std::make_unique<GameUI>();
   ui_->SetTemperatureParam(
       playerManager_->GetPlayer().lock()->GetTemperature());
@@ -48,113 +45,121 @@ void GameScene::Init() {
   standbyUI_->Init();
 
   BlackScreenTransition::GetInstance()->StartFadeIn(2.0f, [this]() {
-      standbyUI_->Start([this]() {
-          // カウントダウンが完了したら、ゲームプレイ状態に移行
-          this->currentState_ = State::Playing;
-          });
-      });
+    standbyUI_->Start([this]() {
+      // カウントダウンが完了したら、ゲームプレイ状態に移行
+      this->currentState_ = State::Playing;
+    });
+  });
+
+  auto modelManager_ = CLEYERA::Manager::ModelManager::GetInstance();
+
+  modelManager_->LoadModel("Resources/Model/Player/ductTape", "ductTape");
+  modelManager_->LoadModel("Resources/Model/Enemy/Effect/soukaiJp", "sokaiJp");
+  modelManager_->LoadModel("Resources/Model/Enemy/Effect/sokai", "sokai");
+  modelManager_->LoadModel("Resources/Model/Enemy/Effect/miwaku", "miwaku");
+  modelManager_->LoadModel("Resources/Model/Enemy/Effect/NAMAasi", "NAMAasi");
+  modelManager_->LoadModel("Resources/Model/Enemy/damageEnemy", "damageEnemy");
+
 }
 
 void GameScene::Update([[maybe_unused]] CLEYERA::Manager::SceneManager *ins) {
 
-    if (BlackScreenTransition::GetInstance()->isOverReturn())
-    {
-        return;
-    }
-    
 
-    // 毎フレーム、トランジション（フェード処理）の更新を呼び出す
-    BlackScreenTransition::GetInstance()->Update();
+  // 毎フレーム、トランジション（フェード処理）の更新を呼び出す
+  BlackScreenTransition::GetInstance()->Update();
 
 
-    // シーンが既に終了しようとしている場合は、他の処理を一切行わない
-    if (currentState_ == State::WAITING_FOR_FADE_OUT) {
-        return;
-    }
 
-    //各シーンで呼び出す
-    if (BlackScreenTransition::GetInstance()->isOverReturn()) {
-        return;
-    }
+  // 毎フレーム、トランジション（フェード処理）の更新を呼び出す
+  BlackScreenTransition::GetInstance()->Update();
+  if (BlackScreenTransition::GetInstance()->isOverReturn()) {
+    return;
+  }
 
-    // フェード中はプレイヤーの入力を受け付けないようにする
-    if (BlackScreenTransition::GetInstance()->IsActive()) {
-        return; // ここで処理を中断
-    }
+  // シーンが既に終了しようとしている場合は、他の処理を一切行わない
+  if (currentState_ == State::WAITING_FOR_FADE_OUT) {
+    return;
+  }
+
+  // 各シーンで呼び出す
+  if (BlackScreenTransition::GetInstance()->isOverReturn()) {
+    return;
+  }
+
+  // フェード中はプレイヤーの入力を受け付けないようにする
+  if (BlackScreenTransition::GetInstance()->IsActive()) {
+    return; // ここで処理を中断
+  }
 
 #ifdef _DEBUG
 
-    if (ImGui::Button("SceneReLoad")) {
-      ins->ChangeScene("GameScene");
-      return;
-    }
+  if (ImGui::Button("SceneReLoad")) {
+    ins->ChangeScene("GameScene");
+    return;
+  }
 
 #endif // _DEBUG
 
- 
- 
-  switch (currentState_)
-  {
+  switch (currentState_) {
   case State::Standby:
-      standbyUI_->Update(); // カウントダウンの更新
-      ui_->Update();
+    standbyUI_->Update(); // カウントダウンの更新
 
-      break;
-  case State::Playing:
-  {
-      // ここに通常のゲームプレイの更新処理を書く
-      playerManager_->Update();
-      enemyManager_->Update();
+    break;
 
-      ui_->Update();
+  case State::Playing: {
+    // ここに通常のゲームプレイの更新処理を書く
+    playerManager_->GetPlayer().lock()->ParamBase::SetStart(true);
 
-      bool shouldTransition = false;
-      //クリアしたら
-      if (playerManager_->GetPlayer().lock()->GetTranslate().z >= 400.0f) {
-          shouldTransition = true;
-          nextSceneName_ = "GameClear";
-      }
+    playerManager_->Update();
+    enemyManager_->Update();
 
-      //死んだとき
-      if (playerManager_->GetPlayer().lock()->GetIsDead()) {
-          shouldTransition = true;
-          nextSceneName_ = "GameOver";
-      }
+    ui_->Update();
 
-      // シーン遷移が必要な場合
-      if (shouldTransition) {
-          currentState_ = State::WAITING_FOR_FADE_OUT;
-          auto sceneManager = CLEYERA::Manager::SceneManager::GetInstance();
-          // フェードアウトを開始
-          BlackScreenTransition::GetInstance()->StartFadeOut(1.0f, [=]() {
-              sceneManager->ChangeScene(nextSceneName_);
-              return;
-              });
-      }
-  }
-      break;
+    bool shouldTransition = false;
+    // クリアしたら
+    if (playerManager_->GetPlayer().lock()->GetTranslate().z >= 400.0f) {
+      shouldTransition = true;
+      nextSceneName_ = "GameClear";
+    }
+
+    // 死んだとき
+    if (playerManager_->GetPlayer().lock()->GetIsDead()) {
+      shouldTransition = true;
+      nextSceneName_ = "GameOver";
+    }
+
+    // シーン遷移が必要な場合
+    if (shouldTransition) {
+      currentState_ = State::WAITING_FOR_FADE_OUT;
+      auto sceneManager = CLEYERA::Manager::SceneManager::GetInstance();
+      // フェードアウトを開始
+      BlackScreenTransition::GetInstance()->StartFadeOut(1.0f, [=]() {
+        sceneManager->ChangeScene(nextSceneName_);
+        return;
+      });
+    }
+  } break;
 
   case State::WAITING_FOR_FADE_OUT:
-      // フェードアウト中はコールバックが呼ばれるのを待つだけ
-      break;
+    // フェードアウト中はコールバックが呼ばれるのを待つだけ
+    break;
   }
 }
 
-void GameScene::Draw2d() { 
-    ui_->Draw2d();
+void GameScene::Draw2d() {
+  ui_->Draw2d();
 
-    // カウントダウン中はUIを描画
-    if (currentState_ == State::Standby) {
-        standbyUI_->Draw2d();
-    }
-    BlackScreenTransition::GetInstance()->Draw2D();
-
+  // カウントダウン中はUIを描画
+  if (currentState_ == State::Standby) {
+    standbyUI_->Draw2d();
+  }
+  BlackScreenTransition::GetInstance()->Draw2D();
 }
 
 void GameScene::Finalize() {
-    standbyUI_.reset();
-    playerManager_.reset();
-    enemyManager_.reset();
-    ui_.reset();
-    worldSpeed_.reset();
+  standbyUI_.reset();
+  playerManager_.reset();
+  enemyManager_.reset();
+  ui_.reset();
+  worldSpeed_.reset();
 }
