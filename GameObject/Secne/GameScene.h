@@ -33,7 +33,11 @@ private:
         Standby, // カウントダウン中
         Playing  // ゲームプレイ中
     };
+
+    bool shouldTransition = false;
+
     State currentState_ = State::Standby;
+    std::string nextSceneName_ = "";    // 遷移先のシーン名を保持する変数
     std::unique_ptr<GamePlayStandbyUI> standbyUI_;
  
   std::shared_ptr<WorldSetting> worldSpeed_ = nullptr;

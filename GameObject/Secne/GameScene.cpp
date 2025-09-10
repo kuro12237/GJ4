@@ -55,11 +55,24 @@ void GameScene::Init() {
 
 void GameScene::Update([[maybe_unused]] CLEYERA::Manager::SceneManager *ins) {
 
+    auto sceneManager = CLEYERA::Manager::SceneManager::GetInstance();
+
+    // シーン遷移が必要な場合
+    if (shouldTransition) {
+        // フェードアウトを開始
+        BlackScreenTransition::GetInstance()->StartFadeOut(1.0f, [=]() {
+            sceneManager->ChangeScene("nextSceneName_");
+            return;
+            });
+    }
+
     // 毎フレーム、トランジション（フェード処理）の更新を呼び出す
     BlackScreenTransition::GetInstance()->Update();
 
+
     //各シーンで呼び出す
     if (BlackScreenTransition::GetInstance()->isOverReturn()) {
+
         return;
     }
 
@@ -90,10 +103,15 @@ void GameScene::Update([[maybe_unused]] CLEYERA::Manager::SceneManager *ins) {
       ui_->Update();
       //クリアしたら
       if (playerManager_->GetPlayer().lock()->GetTranslate().z >= 400.0f) {
+          shouldTransition = true;
+          nextSceneName_ = "GameClear";
       }
 
       //死んだとき
       if (playerManager_->GetPlayer().lock()->GetIsDead()){
+          shouldTransition = true;
+          nextSceneName_ = "GameOver";
+
       }
       break;
   }
