@@ -157,6 +157,7 @@
     <ClCompile Include="GameObject\Player\PlayerState\PlayerAttack.cpp" />
     <ClCompile Include="GameObject\Player\PlayerState\PlayerHitState.cpp" />
     <ClCompile Include="GameObject\Player\PlayerState\PlayerNone.cpp" />
+    <ClCompile Include="GameObject\Secne\GameOverUI\GameOverUI.cpp" />
     <ClCompile Include="GameObject\Secne\GameScene.cpp" />
     <ClCompile Include="GameObject\Secne\BlackScreenTransition.cpp" />
     <ClCompile Include="GameObject\Util\EnvironmentObject\EnvironmentObject.cpp" />
@@ -204,6 +205,7 @@
     <ClInclude Include="GameObject\Player\PlayerState\PlayerHitState.h" />
     <ClInclude Include="GameObject\Player\PlayerState\PlayerNone.h" />
     <ClInclude Include="GameObject\Secne\BlackScreenTransition.h" />
+    <ClInclude Include="GameObject\Secne\GameOverUI\GameOverUI.h" />
     <ClInclude Include="GameObject\Secne\GameScene.h" />
     <ClInclude Include="GameObject\Secne\TitleScene.h" />
     <ClInclude Include="GameObject\Secne\TitleUI\SelectUI\SeletUI_GameOver.h" />

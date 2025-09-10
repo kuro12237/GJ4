@@ -1,33 +1,24 @@
 #include "GameOver.h"
 
-void GameOver::Init(){
+void GameOver::Init() {
 	// 最初にトランジションの初期化を行う
 	BlackScreenTransition::GetInstance()->Init();
 
 	shouldTransition = false;
 
+	GameOverUI_ = std::make_unique<GameOverUI>();
+	GameOverUI_->Init();
 
 	BlackScreenTransition::GetInstance()->StartFadeIn(2.0f, [this]() {
 
 		});
 }
 
-void GameOver::Update(CLEYERA::Manager::SceneManager* ins){
-	// 毎フレーム、トランジション（フェード処理）の更新を呼び出す
-	BlackScreenTransition::GetInstance()->Update();
+void GameOver::Update(CLEYERA::Manager::SceneManager* ins) {
 
 	auto input = CLEYERA::Manager::InputManager::GetInstance();
 	auto sceneManager = CLEYERA::Manager::SceneManager::GetInstance();
 
-
-	// フェード中はプレイヤーの入力を受け付けないようにする
-	if (BlackScreenTransition::GetInstance()->IsActive()) {
-		return; // ここで処理を中断
-	}
-
-	if (input->PushBotton(XINPUT_GAMEPAD_A)) {
-		shouldTransition = true;
-	}
 
 	// シーン遷移が必要な場合
 	if (shouldTransition) {
@@ -37,9 +28,33 @@ void GameOver::Update(CLEYERA::Manager::SceneManager* ins){
 			return;
 			});
 	}
+	// 毎フレーム、トランジション（フェード処理）の更新を呼び出す
+	BlackScreenTransition::GetInstance()->Update();
+
+	//各シーンで呼び出す
+	if (BlackScreenTransition::GetInstance()->isOverReturn()){
+		return;
+	}
+
+
+	// フェード中はプレイヤーの入力を受け付けないようにする
+	if (!BlackScreenTransition::GetInstance()->IsActive())
+		return;
+
+	if (input->PushBotton(XINPUT_GAMEPAD_A)) {
+		shouldTransition = true;
+	}
+
+
+
+	GameOverUI_->Update();
+
 }
 
-void GameOver::Draw2d(){
+void GameOver::Draw2d() {
+
+	GameOverUI_->Draw();
+
 	BlackScreenTransition::GetInstance()->Draw2D();
 
 }
