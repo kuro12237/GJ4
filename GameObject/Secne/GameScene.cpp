@@ -79,6 +79,8 @@ void GameScene::Update([[maybe_unused]] CLEYERA::Manager::SceneManager *ins) {
   {
   case State::Standby:
       standbyUI_->Update(); // カウントダウンの更新
+      //playerManager_->Update();
+      ui_->Update();
       break;
   case State::Playing:
       // ここに通常のゲームプレイの更新処理を書く
@@ -96,7 +98,9 @@ void GameScene::Draw2d() {
     // カウントダウン中はUIを描画
     if (currentState_ == State::Standby) {
         standbyUI_->Draw2d();
+        
     }
+    //ui_->Draw2d();
     BlackScreenTransition::GetInstance()->Draw2D();
 
 }
