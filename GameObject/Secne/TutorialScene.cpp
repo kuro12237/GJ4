@@ -1,7 +1,9 @@
 #include "TutorialScene.h"
 
 void TutorialScene::Init(){
-	// Å‰‚Éƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“‚Ì‰Šú‰»‚ðs‚¤
+  CLEYERA::Manager::ObjectManager::GetInstance()->Clear();
+
+	// æœ€åˆã«ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã®åˆæœŸåŒ–ã‚’è¡Œã†
 	BlackScreenTransition::GetInstance()->Init();
 
 	shouldTransition = false;
@@ -28,18 +30,18 @@ void TutorialScene::Update(CLEYERA::Manager::SceneManager* ins){
 
 	auto input = CLEYERA::Manager::InputManager::GetInstance();
 	auto sceneManager = CLEYERA::Manager::SceneManager::GetInstance();
-	// ƒV[ƒ“‘JˆÚ‚ª•K—v‚Èê‡
+	// ã‚·ãƒ¼ãƒ³é·ç§»ãŒå¿…è¦ãªå ´åˆ
 	if (shouldTransition) {
-		// ƒtƒF[ƒhƒAƒEƒg‚ðŠJŽn
+		// ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆã‚’é–‹å§‹
 		BlackScreenTransition::GetInstance()->StartFadeOut(1.0f, [=]() {
 			sceneManager->ChangeScene("TitleScene");
 			return;
 			});
 	}
-	// –ˆƒtƒŒ[ƒ€Aƒgƒ‰ƒ“ƒWƒVƒ‡ƒ“iƒtƒF[ƒhˆ—j‚ÌXV‚ðŒÄ‚Ño‚·
+	// æ¯Žãƒ•ãƒ¬ãƒ¼ãƒ ã€ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ï¼ˆãƒ•ã‚§ãƒ¼ãƒ‰å‡¦ç†ï¼‰ã®æ›´æ–°ã‚’å‘¼ã³å‡ºã™
 	BlackScreenTransition::GetInstance()->Update();
 
-	//ŠeƒV[ƒ“‚ÅŒÄ‚Ño‚·
+	//å„ã‚·ãƒ¼ãƒ³ã§å‘¼ã³å‡ºã™
 	if (BlackScreenTransition::GetInstance()->isOverReturn()) {
 		return;
 	}
@@ -67,9 +69,9 @@ void TutorialScene::Update(CLEYERA::Manager::SceneManager* ins){
 
 	TutorialSceneUI_->Update();
 	TitleReturn_->Update();
-	// ƒtƒF[ƒh’†‚ÍƒvƒŒƒCƒ„[‚Ì“ü—Í‚ðŽó‚¯•t‚¯‚È‚¢‚æ‚¤‚É‚·‚é
+	// ãƒ•ã‚§ãƒ¼ãƒ‰ä¸­ã¯ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®å…¥åŠ›ã‚’å—ã‘ä»˜ã‘ãªã„ã‚ˆã†ã«ã™ã‚‹
 	if (BlackScreenTransition::GetInstance()->IsActive()) {
-		return; // ‚±‚±‚Åˆ—‚ð’†’f
+		return; // ã“ã“ã§å‡¦ç†ã‚’ä¸­æ–­
 	}
 
 	if (input->PushBotton(XINPUT_GAMEPAD_B)) {

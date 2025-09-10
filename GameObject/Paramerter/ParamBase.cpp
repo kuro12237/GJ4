@@ -2,6 +2,8 @@
 
 bool ParamBase::CalcTemperature(const Math::Vector::Vec3 &pos) {
 
+   if (!isStart_)
+    return false;
 
   if (pos.x <= 0.0f) {
     temperature_ -= temperatureSpeed_;
