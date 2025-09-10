@@ -3,6 +3,10 @@
 void GameScene::Init() {
 
   CLEYERA::Manager::ObjectManager::GetInstance()->Clear();
+
+  // 最初にトランジションの初期化を行う
+  BlackScreenTransition::GetInstance()->Init();
+
   // ファイル
   loader_ = std::make_unique<SceneLoader>();
   loader_->LoadSceneData("GameScene");
@@ -37,21 +41,59 @@ void GameScene::Init() {
       CLEYERA::Manager::ModelManager::GetInstance()->LoadModel(
           "Resources/Model/Terrain/", "terrain");
   CLEYERA::Manager::Terrain::GetInstance()->ChengeData(modelHandle);
+
+  standbyUI_ = std::make_unique<GamePlayStandbyUI>();
+  standbyUI_->Init();
+
+  BlackScreenTransition::GetInstance()->StartFadeIn(2.0f, [this]() {
+      standbyUI_->Start([this]() {
+          // カウントダウンが完了したら、ゲームプレイ状態に移行
+          this->currentState_ = State::Playing;
+          });
+      });
 }
 
 void GameScene::Update([[maybe_unused]] CLEYERA::Manager::SceneManager *ins) {
+
+    // 毎フレーム、トランジション（フェード処理）の更新を呼び出す
+    BlackScreenTransition::GetInstance()->Update();
+
+    // フェード中はプレイヤーの入力を受け付けないようにする
+    if (BlackScreenTransition::GetInstance()->IsActive()) {
+        return; // ここで処理を中断
+    }
 
   if (ImGui::Button("SceneReLoad")) {
     ins->ChangeScene("GameScene");
     return;
   }
   CLEYERA::Manager::ObjectManager::GetInstance();
-  playerManager_->Update();
-  enemyManager_->Update();
 
-  ui_->Update();
+
+  switch (currentState_)
+  {
+  case State::Standby:
+      standbyUI_->Update(); // カウントダウンの更新
+      break;
+  case State::Playing:
+      // ここに通常のゲームプレイの更新処理を書く
+      playerManager_->Update();
+      enemyManager_->Update();
+
+      ui_->Update();
+      break;
+  }
 }
 
-void GameScene::Draw2d() { ui_->Draw2d(); }
+void GameScene::Draw2d() { 
+    ui_->Draw2d();
+
+    // カウントダウン中はUIを描画
+    if (currentState_ == State::Standby) {
+        standbyUI_->Draw2d();
+    }
+    BlackScreenTransition::GetInstance()->Draw2D();
+
+}
 
 void GameScene::Finalize() {  }

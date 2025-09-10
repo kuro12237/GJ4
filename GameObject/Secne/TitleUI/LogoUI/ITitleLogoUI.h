@@ -34,7 +34,7 @@ public:
 		animationDuration_ = duration;
 		animationTimer_ = 0.0f;
 		isAnimating_ = true;
-		this->SetTranslate(start); // 髢句ｧ倶ｽ咲ｽｮ繧偵そ繝・ヨ
+		this->SetTranslate(start); //開始位置をセット
 	}
 
 	bool IsAnimating() const { return isAnimating_; }
@@ -64,7 +64,7 @@ public:
 
 
 protected:
-	// 笘・・笘・・笘・繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ逕ｨ螟画焚繧定ｿｽ蜉 笘・・笘・・笘・
+
 	bool isAnimating_ = false;
 	float animationTimer_ = 0.0f;
 	float animationDuration_ = 0.5f;
