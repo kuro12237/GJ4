@@ -97,8 +97,7 @@ void GameScene::Update([[maybe_unused]] CLEYERA::Manager::SceneManager *ins) {
   switch (currentState_) {
   case State::Standby:
     standbyUI_->Update(); // カウントダウンの更新
-    ui_->Update();
-
+  
     break;
   case State::Playing: {
     // ここに通常のゲームプレイの更新処理を書く
