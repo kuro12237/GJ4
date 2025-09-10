@@ -35,6 +35,7 @@ void Player::Init() {
   });
 
   this->ChangeState(std::make_unique<PlayerNone>());
+  scale_ = {1.0f, 1.0f, 1.0f};
 }
 
 void Player::Update() {
