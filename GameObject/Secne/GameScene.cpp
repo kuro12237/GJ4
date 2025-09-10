@@ -58,6 +58,11 @@ void GameScene::Update([[maybe_unused]] CLEYERA::Manager::SceneManager *ins) {
     // 毎フレーム、トランジション（フェード処理）の更新を呼び出す
     BlackScreenTransition::GetInstance()->Update();
 
+    //各シーンで呼び出す
+    if (BlackScreenTransition::GetInstance()->isOverReturn()) {
+        return;
+    }
+
     // フェード中はプレイヤーの入力を受け付けないようにする
     if (BlackScreenTransition::GetInstance()->IsActive()) {
         return; // ここで処理を中断

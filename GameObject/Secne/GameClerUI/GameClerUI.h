@@ -2,11 +2,11 @@
 #include "CLEYERA.h"
 
 
-class GameOverUI :public SpriteComponent
+class GameClerUI :public SpriteComponent
 {
 public:
-	GameOverUI() = default;
-	~GameOverUI() = default;
+	GameClerUI() = default;
+	~GameClerUI() = default;
 
 	void Init() override;
 

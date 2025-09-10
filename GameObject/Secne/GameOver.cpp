@@ -9,6 +9,8 @@ void GameOver::Init() {
 	GameOverUI_ = std::make_unique<GameOverUI>();
 	GameOverUI_->Init();
 
+	GameOverUI_->SetTranslate(Background_pos);
+	GameOverUI_->SetScale(Background_Scale);
 	BlackScreenTransition::GetInstance()->StartFadeIn(2.0f, [this]() {
 
 		});
@@ -36,18 +38,30 @@ void GameOver::Update(CLEYERA::Manager::SceneManager* ins) {
 		return;
 	}
 
+#ifdef _DEBUG
+
+	if (ImGui::TreeNode("SubUI")) {
+		ImGui::DragFloat2("Background_Scale", &Background_Scale.x);
+		ImGui::DragFloat2("Background_pos", &this->Background_pos.x, 1.f, -1000.0f, 1000.0f);
+
+		ImGui::TreePop();
+	}
+
+#endif	_DEBUG
+
+	GameOverUI_->SetTranslate(Background_pos);
+	GameOverUI_->SetScale(Background_Scale);
+
+	GameOverUI_->Update();
 
 	// フェード中はプレイヤーの入力を受け付けないようにする
-	if (!BlackScreenTransition::GetInstance()->IsActive())
+	if (BlackScreenTransition::GetInstance()->IsActive()) {
 		return;
+	}
 
 	if (input->PushBotton(XINPUT_GAMEPAD_A)) {
 		shouldTransition = true;
 	}
-
-
-
-	GameOverUI_->Update();
 
 }
 
