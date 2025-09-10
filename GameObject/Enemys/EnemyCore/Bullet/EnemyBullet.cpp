@@ -15,6 +15,8 @@ this->category_ = VAR_NAME(EnemyBullet);
   });
 
   scale_ = {0.5f, 0.5f, 0.5f};
+  this->isTerrainHit_ = false;
+  this->isGravity_ = false;
 }
 
 void EnemyBullet::Update() {
