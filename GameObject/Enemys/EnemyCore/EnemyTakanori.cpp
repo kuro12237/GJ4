@@ -31,6 +31,8 @@ void EnemyTakanori::Init() {
 
   zInterval_ = RandomGenerator::GetFloat(5.0f, 8.0f);
   scale_ = {0.75f, 0.75f, 1.0f};
+  this->isTerrainHit_ = false;
+  this->isGravity_ = false;
 }
 
 void EnemyTakanori::Update() {

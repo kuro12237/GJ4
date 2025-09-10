@@ -59,16 +59,22 @@ void GameScene::Init() {
   modelManager_->LoadModel("Resources/Model/Enemy/Effect/miwaku", "miwaku");
   modelManager_->LoadModel("Resources/Model/Enemy/Effect/NAMAasi", "NAMAasi");
   modelManager_->LoadModel("Resources/Model/Enemy/damageEnemy", "damageEnemy");
+
 }
 
 void GameScene::Update([[maybe_unused]] CLEYERA::Manager::SceneManager *ins) {
 
-  if (BlackScreenTransition::GetInstance()->isOverReturn()) {
-    return;
-  }
 
   // 毎フレーム、トランジション（フェード処理）の更新を呼び出す
   BlackScreenTransition::GetInstance()->Update();
+
+
+
+  // 毎フレーム、トランジション（フェード処理）の更新を呼び出す
+  BlackScreenTransition::GetInstance()->Update();
+  if (BlackScreenTransition::GetInstance()->isOverReturn()) {
+    return;
+  }
 
   // シーンが既に終了しようとしている場合は、他の処理を一切行わない
   if (currentState_ == State::WAITING_FOR_FADE_OUT) {
@@ -97,10 +103,13 @@ void GameScene::Update([[maybe_unused]] CLEYERA::Manager::SceneManager *ins) {
   switch (currentState_) {
   case State::Standby:
     standbyUI_->Update(); // カウントダウンの更新
-  
+
     break;
+
   case State::Playing: {
     // ここに通常のゲームプレイの更新処理を書く
+    playerManager_->GetPlayer().lock()->ParamBase::SetStart(true);
+
     playerManager_->Update();
     enemyManager_->Update();
 
