@@ -113,7 +113,7 @@ void TitleScene::Update([[maybe_un_used]] CLEYERA::Manager::SceneManager* ins) {
                 shouldTransition = true;
             }
             else if (current == SelectUI::SelectItem::GameOver) {
-                // ゲーム終了処理
+                GameManager::GetInstance()->RequestQuit();
                 return;
             }
 

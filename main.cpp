@@ -5,6 +5,8 @@
 #include "GameObject/Secne/TutorialScene.h"
 #include "GameObject//Secne/GameClear.h"
 #include "GameObject/Secne/GameOver.h"
+#include "GameObject/GameManager/GameManager.h" // 作成したヘッダをインクルード
+
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
@@ -27,9 +29,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 
   //sceneManager->ChangeScene("GameClear");
-  sceneManager->ChangeScene("GameClear");
+  sceneManager->ChangeScene("TitleScene");
 
-  while (CLEYERA::Base::Win::WinApp::GetInstance()->WinMsg()) {
+  while (CLEYERA::Base::Win::WinApp::GetInstance()->WinMsg() && !GameManager::GetInstance()->IsQuitRequested()) {
     engine_->Run();
   };
   BlackScreenTransition::GetInstance()->Finalize();

@@ -6,6 +6,7 @@
 #include "TitleUI/SelectUI/SelectUI.h"
 #include "BlackScreenTransition.h"
 #include "Camera.h"
+#include "../GameManager/GameManager.h"
 
 
 	enum class State {

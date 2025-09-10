@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameObject\GameManager\GameManager.cpp" />
     <ClCompile Include="GameObject\Secne\Camera.cpp" />
     <ClCompile Include="GameObject\GamePlayUI\Operation\Operation.cpp" />
     <ClCompile Include="GameObject\Secne\GameClerUI\GameClerUI.cpp" />
@@ -185,6 +186,7 @@
     <ClCompile Include="GameObject\Secne\TutorialSceneUI\TutorialSceneUI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameObject\GameManager\GameManager.h" />
     <ClInclude Include="GameObject\Secne\Camera.h" />
     <ClInclude Include="GameObject\GamePlayUI\Operation\Operation.h" />
     <ClInclude Include="GameObject\Secne\GameClerUI\GameClerUI.h" />
