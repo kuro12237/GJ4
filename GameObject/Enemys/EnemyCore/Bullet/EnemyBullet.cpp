@@ -13,6 +13,8 @@ this->category_ = VAR_NAME(EnemyBullet);
   collider_->SetHitCallFunc([this](std::weak_ptr<ObjectComponent> other) {
     this->OnCollision(other);
   });
+
+  scale_ = {0.5f, 0.5f, 0.5f};
 }
 
 void EnemyBullet::Update() {

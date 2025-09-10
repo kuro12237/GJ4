@@ -37,6 +37,7 @@
     <ClCompile Include="GameObject\GamePlayStandbyUI\GamePlayStandbyUI.cpp" />
     <ClCompile Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyHitState.cpp" />
     <ClCompile Include="GameObject\Enemys\EnemyCore\Bullet\EnemyBullet.cpp" />
+    <ClCompile Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyDeadState.cpp" />
     <ClCompile Include="GameObject\Secne\GameOverUI\GameOverUI.cpp" />
     <ClCompile Include="GameObject\Secne\GameClerUI\GameClerUI.cpp" />
     <ClCompile Include="GameObject\Secne\TutorialSceneUI\TutorialSceneUI.cpp" />
@@ -98,6 +99,7 @@
     <ClInclude Include="GameObject\GamePlayStandbyUI\IGamePlayStandbyUI.h" />
     <ClInclude Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyHitState.h" />
     <ClInclude Include="GameObject\Enemys\EnemyCore\Bullet\EnemyBullet.h" />
+    <ClInclude Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyDeadState.h" />
     <ClInclude Include="GameObject\Secne\GameOverUI\GameOverUI.h" />
     <ClInclude Include="GameObject\Secne\GameClerUI\GameClerUI.h" />
     <ClInclude Include="GameObject\Secne\TutorialSceneUI\TutorialSceneUI.h" />
