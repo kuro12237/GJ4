@@ -14,12 +14,23 @@ void TutorialScene::Init(){
 
 void TutorialScene::Update(CLEYERA::Manager::SceneManager* ins){
 
+	auto input = CLEYERA::Manager::InputManager::GetInstance();
+	auto sceneManager = CLEYERA::Manager::SceneManager::GetInstance();
+	// シーン遷移が必要な場合
+	if (shouldTransition) {
+		// フェードアウトを開始
+		BlackScreenTransition::GetInstance()->StartFadeOut(1.0f, [=]() {
+			sceneManager->ChangeScene("TitleScene");
+			return;
+			});
+	}
 	// 毎フレーム、トランジション（フェード処理）の更新を呼び出す
 	BlackScreenTransition::GetInstance()->Update();
 
-	auto input = CLEYERA::Manager::InputManager::GetInstance();
-	auto sceneManager = CLEYERA::Manager::SceneManager::GetInstance();
-
+	//各シーンで呼び出す
+	if (BlackScreenTransition::GetInstance()->isOverReturn()) {
+		return;
+	}
 
 	// フェード中はプレイヤーの入力を受け付けないようにする
 	if (BlackScreenTransition::GetInstance()->IsActive()) {
@@ -30,14 +41,6 @@ void TutorialScene::Update(CLEYERA::Manager::SceneManager* ins){
 		shouldTransition = true;
 	}
 
-	// シーン遷移が必要な場合
-	if (shouldTransition) {
-		// フェードアウトを開始
-		BlackScreenTransition::GetInstance()->StartFadeOut(1.0f, [=]() {
-			sceneManager->ChangeScene("TitleScene");
-			return;
-			});
-	}
 }
 
 void TutorialScene::Draw2d(){

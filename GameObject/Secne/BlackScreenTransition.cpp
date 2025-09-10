@@ -68,6 +68,7 @@ void BlackScreenTransition::Update() {
         currentState_ = State::Idle;
         if (onFinishedCallback_) {
             onFinishedCallback_();
+            isChangeReturn_ = true;
         }
     }
     sprite_->Update();

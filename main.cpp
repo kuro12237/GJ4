@@ -3,6 +3,8 @@
 #include "GameObject/Secne/GameScene.h"
 #include "GameObject/Secne/TitleScene.h"
 #include "GameObject/Secne/TutorialScene.h"
+#include "GameObject//Secne/GameClear.h"
+#include "GameObject/Secne/GameOver.h"
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
@@ -20,9 +22,11 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
   sceneManager->RegisterScene<TitleScene>("TitleScene");
   sceneManager->RegisterScene<GameScene>("GameScene");
   sceneManager->RegisterScene<TutorialScene>("TutorialScene");
+  sceneManager->RegisterScene<GameClear>("GameClear");
+  sceneManager->RegisterScene<GameOver>("GameOver");
 
 
-  sceneManager->ChangeScene("TitleScene");
+  sceneManager->ChangeScene("GameOver");
   // sceneManager->ChangeScene("GameScene");
 
   while (CLEYERA::Base::Win::WinApp::GetInstance()->WinMsg()) {
