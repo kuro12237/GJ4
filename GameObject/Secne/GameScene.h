@@ -9,6 +9,11 @@
 
 #include"../GamePlayUI/GameUI.h"
 
+#include "../GamePlayStandbyUI/GamePlayStandbyUI.h"
+
+#include "BlackScreenTransition.h"
+
+
 class GameScene : public CLEYERA::Component::SceneComponent {
 public:
   GameScene() {};
@@ -23,6 +28,13 @@ public:
   void Finalize() override;
 
 private:
+
+    enum class State {
+        Standby, // カウントダウン中
+        Playing  // ゲームプレイ中
+    };
+    State currentState_ = State::Standby;
+    std::unique_ptr<GamePlayStandbyUI> standbyUI_;
  
   std::shared_ptr<WorldSetting> worldSpeed_ = nullptr;
 
@@ -35,4 +47,6 @@ private:
   std::unique_ptr<EnemyManager> enemyManager_ = nullptr;
 
   std::unique_ptr<GameUI> ui_ = nullptr;
+
+
 };

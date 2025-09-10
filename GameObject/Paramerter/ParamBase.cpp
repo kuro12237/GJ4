@@ -1,6 +1,8 @@
 #include "ParamBase.h"
 
-void ParamBase::CalcTemperature(const Math::Vector::Vec3 &pos) {
+bool ParamBase::CalcTemperature(const Math::Vector::Vec3 &pos) {
+
+
   if (pos.x <= 0.0f) {
     temperature_ -= temperatureSpeed_;
 
@@ -8,11 +10,7 @@ void ParamBase::CalcTemperature(const Math::Vector::Vec3 &pos) {
     temperature_ += temperatureSpeed_;
   }
   if (temperature_ >= 1.0f || temperature_ <= -1.0f) {
-    return;
+    return true;
   }
-  ImGui::Begin("Param");
-
-  ImGui::Text("temperature::%f", temperature_);
-
-  ImGui::End();
+  return false;
 }

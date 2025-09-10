@@ -3,6 +3,8 @@
 
 #include"HitEffect/HitEffect.h"
 
+#include "../WorldSpeed/WorldSpeed.h"
+
 class EnemyManager :public CLEYERA::Component::JsonCompornent{
 public:
   EnemyManager() {};
@@ -17,6 +19,7 @@ public:
   void SpawnEffect(const Math::Vector::Vec3 &pos);
 
   void SetPlayerPos(const Math::Vector::Vec3 *pos) { playerPos_ = pos; }
+  void SetWorldSetting(std::weak_ptr<WorldSetting> w) { world_ = w; }
 
 private:
 	
@@ -33,4 +36,5 @@ private:
 
 
   size_t killEnemyCount_ = 0;
+  std::weak_ptr<WorldSetting> world_;
 };
