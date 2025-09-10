@@ -6,6 +6,11 @@ void GameClear::Init(){
 
 	shouldTransition = false;
 
+	GameClerUI_ = std::make_unique<GameClerUI>();
+	GameClerUI_->Init();
+
+	GameClerUI_->SetTranslate(Background_pos);
+	GameClerUI_->SetScale(Background_Scale);
 
 	BlackScreenTransition::GetInstance()->StartFadeIn(2.0f, [this]() {
 
@@ -32,6 +37,22 @@ void GameClear::Update(CLEYERA::Manager::SceneManager* ins){
 		return;
 	}
 
+#ifdef _DEBUG
+
+	if (ImGui::TreeNode("Cler")) {
+		ImGui::DragFloat2("Background_Scale", &Background_Scale.x);
+		ImGui::DragFloat2("Background_pos", &this->Background_pos.x, 1.f, -1000.0f, 1000.0f);
+
+		ImGui::TreePop();
+	}
+
+#endif	_DEBUG
+
+	GameClerUI_->SetTranslate(Background_pos);
+	GameClerUI_->SetScale(Background_Scale);
+
+	GameClerUI_->Update();
+
 	// フェード中はプレイヤーの入力を受け付けないようにする
 	if (BlackScreenTransition::GetInstance()->IsActive()) {
 		return; // ここで処理を中断
@@ -45,5 +66,6 @@ void GameClear::Update(CLEYERA::Manager::SceneManager* ins){
 }
 
 void GameClear::Draw2d(){
+	GameClerUI_->Draw();
 	BlackScreenTransition::GetInstance()->Draw2D();
 }
