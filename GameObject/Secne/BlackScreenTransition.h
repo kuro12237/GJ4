@@ -6,8 +6,8 @@ class BlackScreenTransition : public SpriteComponent {
 public:
     static BlackScreenTransition* GetInstance();
 
-    void Init();
-    void Update();
+    void Init()override;
+    void Update()override;
     void Draw2D();
 
     void Finalize();
@@ -16,6 +16,10 @@ public:
     void StartFadeIn(float duration, std::function<void()> on_finished = nullptr);
     bool IsActive() const { return isActive_; }
 
+    bool isOverReturn(){ 
+        bool result = isChangeReturn_;
+        isChangeReturn_ = false;
+        return result; }
 private:
     BlackScreenTransition() = default;
     ~BlackScreenTransition();
@@ -28,4 +32,7 @@ private:
     float timer_ = 0.0f;
     float duration_ = 1.0f;
     std::function<void()> onFinishedCallback_;
+
+    bool isChangeReturn_ = false;
+
 };
