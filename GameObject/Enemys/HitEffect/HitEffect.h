@@ -19,6 +19,8 @@ public:
   void SetSpownPos(const Math::Vector::Vec3 &pos) { translate_ = pos; }
 
 private:
+  Math::Vector::Vec4 RandomColorHSV();
+
   enum class EffectName { Sokai_Jp, Miwaku, NamaAsi, sokai };
 
   float EaseInBack(float x) {

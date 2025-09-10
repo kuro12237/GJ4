@@ -45,6 +45,7 @@ void PlayerBullet::OnCollision(
   if (it->GetCategory() == "Player") {
     return;
   }
+ 
     isDead_ = true;
 
   SetMode(OBJ_MODE::REMOVE);

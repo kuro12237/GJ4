@@ -67,9 +67,9 @@ void GameScene::Update([[maybe_unused]] CLEYERA::Manager::SceneManager *ins) {
     ins->ChangeScene("GameScene");
     return;
   }
-  CLEYERA::Manager::ObjectManager::GetInstance();
+ 
 
-
+ 
   switch (currentState_)
   {
   case State::Standby:

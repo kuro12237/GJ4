@@ -136,6 +136,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GameObject\Enemys\EnemyCore\Bullet\EnemyBullet.cpp" />
+    <ClCompile Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyDeadState.cpp" />
     <ClCompile Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyHitState.cpp" />
     <ClCompile Include="GameObject\Secne\GameClear.cpp" />
     <ClCompile Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyMoveState.cpp" />
@@ -173,6 +174,7 @@
     <ClCompile Include="GameObject\Secne\TutorialScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyDeadState.h" />
     <ClInclude Include="GameObject\GamePlayStandbyUI\IGamePlayStandbyUI.h" />
     <ClInclude Include="GameObject\GamePlayStandbyUI\number_1.h" />
     <ClInclude Include="GameObject\GamePlayStandbyUI\number_2.h" />

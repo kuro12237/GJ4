@@ -8,7 +8,7 @@ void EnemyTakanori::Init() {
   this->CreateJsonSystem("Resources/Configs/Entitiys/EnemyTakanori/");
 
   uint32_t modelHandle = modelManager_->LoadModel(
-      "Resources/Model/Enemy/Human_Nude", "Human_Nude");
+      "Resources/Model/Enemy/normalEnemy", "normalEnemy");
   this->SetModelHandle(modelHandle);
 
   auto json = CLEYERA::Manager::GlobalVariables::GetInstance();
@@ -30,6 +30,7 @@ void EnemyTakanori::Init() {
   this->ChangeScene(std::make_unique<EnemyMoveState>());
 
   zInterval_ = RandomGenerator::GetFloat(5.0f, 8.0f);
+  scale_ = {0.75f, 0.75f, 1.0f};
 }
 
 void EnemyTakanori::Update() {
