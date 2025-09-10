@@ -29,5 +29,11 @@ private:
 
 	Math::Vector::Vec3 TitleReturn_pos = { 650.0f,620.0f };
 	Math::Vector::Vec3 TitleReturn_scale = { 0.3f,0.2f };
+
+	// “_–Åˆ——p‚Ì•Ï”
+	float blinkTimer_ = 0.0f;
+	bool isTitleReturnVisible_ = true;
+	const float BLINK_INTERVAL = 0.5f;
+
 };
 

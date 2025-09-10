@@ -41,24 +41,21 @@ void TutorialScene::Update(CLEYERA::Manager::SceneManager* ins){
 	// 毎フレーム、トランジション（フェード処理）の更新を呼び出す
 	BlackScreenTransition::GetInstance()->Update();
 
+	// �_�Ń^�C�}�[�̍X�V
+	const float DELTA_TIME_60FPS = 1.0f / 60.0f;
+	blinkTimer_ += DELTA_TIME_60FPS;
+
+	// �w�肵�����Ԃ��o�߂�����
+	if (blinkTimer_ >= BLINK_INTERVAL) {
+		isTitleReturnVisible_ = !isTitleReturnVisible_; // �\���t���O�𔽓]������ (true -> false, false -> true)
+		blinkTimer_ = 0.0f; // �^�C�}�[�����Z�b�g
+	}
+
+	//�e�V�[���ŌĂяo��
 	//各シーンで呼び出す
 	if (BlackScreenTransition::GetInstance()->isOverReturn()) {
 		return;
 	}
-
-#ifdef _DEBUG
-
-	if (ImGui::TreeNode("Cler")) {
-		ImGui::DragFloat2("Background_Scale", &Background_Scale.x);
-		ImGui::DragFloat2("Background_pos", &this->Background_pos.x, 1.f, -1000.0f, 1000.0f);
-
-		ImGui::DragFloat2("TitleReturn_scale", &TitleReturn_scale.x);
-		ImGui::DragFloat2("TitleReturn_pos", &this->TitleReturn_pos.x, 1.f, -1000.0f, 1000.0f);
-
-		ImGui::TreePop();
-	}
-
-#endif	_DEBUG
 
 	TutorialSceneUI_->SetTranslate(Background_pos);
 	TutorialSceneUI_->SetScale(Background_Scale);
@@ -82,6 +79,8 @@ void TutorialScene::Update(CLEYERA::Manager::SceneManager* ins){
 
 void TutorialScene::Draw2d(){
 	TutorialSceneUI_->Draw();
-	TitleReturn_->Draw();
+	if (isTitleReturnVisible_) {
+		TitleReturn_->Draw();
+	}
 	BlackScreenTransition::GetInstance()->Draw2D();
 }

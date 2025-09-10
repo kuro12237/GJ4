@@ -48,18 +48,14 @@ void GameOver::Update(CLEYERA::Manager::SceneManager* ins) {
 		return;
 	}
 
-#ifdef _DEBUG
+	const float DELTA_TIME_60FPS = 1.0f / 60.0f;
+	blinkTimer_ += DELTA_TIME_60FPS;
 
-	if (ImGui::TreeNode("GameOver")) {
-		ImGui::DragFloat2("Background_Scale", &Background_Scale.x);
-		ImGui::DragFloat2("Background_pos", &this->Background_pos.x, 1.f, -1000.0f, 1000.0f);
-		ImGui::DragFloat2("TitleReturn_scale", &TitleReturn_scale.x);
-		ImGui::DragFloat2("TitleReturn_pos", &this->TitleReturn_pos.x, 1.f, -1000.0f, 1000.0f);
-
-		ImGui::TreePop();
+	// 指定した時間が経過したら
+	if (blinkTimer_ >= BLINK_INTERVAL) {
+		isTitleReturnVisible_ = !isTitleReturnVisible_; // 表示フラグを反転させる (true -> false, false -> true)
+		blinkTimer_ = 0.0f; // タイマーをリセット
 	}
-
-#endif	_DEBUG
 
 	GameOverUI_->SetTranslate(Background_pos);
 	GameOverUI_->SetScale(Background_Scale);
@@ -84,8 +80,9 @@ void GameOver::Update(CLEYERA::Manager::SceneManager* ins) {
 void GameOver::Draw2d() {
 
 	GameOverUI_->Draw();
-	TitleReturn_->Draw();
-
+	if (isTitleReturnVisible_) {
+		TitleReturn_->Draw();
+	}
 	BlackScreenTransition::GetInstance()->Draw2D();
 
 }
