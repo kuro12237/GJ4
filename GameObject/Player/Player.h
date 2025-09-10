@@ -34,6 +34,7 @@ public:
   void OnCollision(std::weak_ptr<ObjectComponent> other);
 
 private:
+  Math::Vector::Vec4 CalcColor(float x);
 
   float widthMinMax_ = 9.0f;
   float heightMinMax_ = 3.0f;

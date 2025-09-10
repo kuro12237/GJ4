@@ -29,7 +29,7 @@ void EnemyTakanori::Init() {
 
   this->ChangeScene(std::make_unique<EnemyMoveState>());
 
-  zInterval_ = RandomGenerator::GetFloat(5.0f, 8.0f);
+  zInterval_ = RandomGenerator::GetFloat(10.0f, 18.0f);
   scale_ = {0.75f, 0.75f, 1.0f};
   this->isTerrainHit_ = false;
   this->isGravity_ = false;
@@ -57,6 +57,7 @@ void EnemyTakanori::Update() {
     world_.lock()->CalcSpeed(translate_);
   }
 
+  this->isStart_ = true;
   gameObject_->ColorData().color_ = this->CalcColor(temperature_);
 
   isDead_ = CalcTemperature(translate_);
