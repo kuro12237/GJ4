@@ -86,6 +86,13 @@ void GameScene::Update([[maybe_unused]] CLEYERA::Manager::SceneManager *ins) {
       enemyManager_->Update();
 
       ui_->Update();
+      //クリアしたら
+      if (playerManager_->GetPlayer().lock()->GetTranslate().z >= 400.0f) {
+      }
+
+      //死んだとき
+      if (playerManager_->GetPlayer().lock()->GetIsDead()) {
+      }
       break;
   }
 }
