@@ -125,16 +125,23 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\Externals\DirectXTex\include\;$(ProjectDir)..\GameEngine\CLEYERA\;$(ProjectDir)..\Externals\ImGui\include\;$(ProjectDir)..\Externals\Math\include\;$(ProjectDir)..\Externals\nlohmann\;$(ProjectDir)..\Externals\assimp\include\;$(ProjectDir)..\Externals\LuaAssets\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Externals\DirectXTex\include\;$(ProjectDir)Externals\Engine\include\CLEYERA\;$(ProjectDir)Externals\ImGui\include\;$(ProjectDir)Externals\Math\include\;$(ProjectDir)Externals\nlohmann\;$(ProjectDir)Externals\assimp\include\;$(ProjectDir)Externals\LuaAssets\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)Externals\Engine\lib\Release\;$(ProjectDir)Externals\Math\lib\Release\;$(ProjectDir)Externals\ImGui\lib\Release\;$(ProjectDir)Externals\DirectXTex\lib\Release\;$(ProjectDir)Externals\assimp\lib\Release\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimp-vc143-mt.lib;ImGui.lib;DirectXTex.lib;math.lib;Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameObject\Secne\Camera.cpp" />
+    <ClCompile Include="GameObject\GamePlayUI\Operation\Operation.cpp" />
     <ClCompile Include="GameObject\Secne\GameClerUI\GameClerUI.cpp" />
     <ClCompile Include="GameObject\Enemys\EnemyCore\Bullet\EnemyBullet.cpp" />
     <ClCompile Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyDeadState.cpp" />
@@ -178,6 +185,8 @@
     <ClCompile Include="GameObject\Secne\TutorialSceneUI\TutorialSceneUI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameObject\Secne\Camera.h" />
+    <ClInclude Include="GameObject\GamePlayUI\Operation\Operation.h" />
     <ClInclude Include="GameObject\Secne\GameClerUI\GameClerUI.h" />
     <ClInclude Include="GameObject\Enemys\EnemyCore\EnemyState\EnemyDeadState.h" />
     <ClInclude Include="GameObject\GamePlayStandbyUI\IGamePlayStandbyUI.h" />

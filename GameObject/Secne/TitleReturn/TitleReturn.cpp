@@ -5,7 +5,7 @@ void TitleReturn::Init(){
 
 	this->Create();
 	this->GetJsonName();
-	uint32_t handle = texManager_->LoadPngTex("");
+	uint32_t handle = texManager_->LoadPngTex("TitleReturn");
 	handle_ = handle;
 }
 

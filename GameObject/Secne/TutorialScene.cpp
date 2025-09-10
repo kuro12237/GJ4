@@ -6,13 +6,18 @@ void TutorialScene::Init(){
 
 	shouldTransition = false;
 
-	
+	camera_ = std::make_shared<CameraUI>();
+	camera_->Init();
 
 	TutorialSceneUI_ = std::make_unique<TutorialSceneUI>();
 	TutorialSceneUI_->Init();
-
 	TutorialSceneUI_->SetTranslate(Background_pos);
 	TutorialSceneUI_->SetScale(Background_Scale);
+
+	TitleReturn_ = std::make_unique<TitleReturn>();
+	TitleReturn_->Init();
+	TitleReturn_->SetTranslate(Background_pos);
+	TitleReturn_->SetScale(Background_Scale);
 
 	BlackScreenTransition::GetInstance()->StartFadeIn(2.0f, [this]() {
 		
@@ -45,6 +50,9 @@ void TutorialScene::Update(CLEYERA::Manager::SceneManager* ins){
 		ImGui::DragFloat2("Background_Scale", &Background_Scale.x);
 		ImGui::DragFloat2("Background_pos", &this->Background_pos.x, 1.f, -1000.0f, 1000.0f);
 
+		ImGui::DragFloat2("TitleReturn_scale", &TitleReturn_scale.x);
+		ImGui::DragFloat2("TitleReturn_pos", &this->TitleReturn_pos.x, 1.f, -1000.0f, 1000.0f);
+
 		ImGui::TreePop();
 	}
 
@@ -53,14 +61,18 @@ void TutorialScene::Update(CLEYERA::Manager::SceneManager* ins){
 	TutorialSceneUI_->SetTranslate(Background_pos);
 	TutorialSceneUI_->SetScale(Background_Scale);
 
-	TutorialSceneUI_->Update();
+	TitleReturn_->SetTranslate(TitleReturn_pos);
+	TitleReturn_->SetScale(TitleReturn_scale);
 
+
+	TutorialSceneUI_->Update();
+	TitleReturn_->Update();
 	// フェード中はプレイヤーの入力を受け付けないようにする
 	if (BlackScreenTransition::GetInstance()->IsActive()) {
 		return; // ここで処理を中断
 	}
 
-	if (input->PushBotton(XINPUT_GAMEPAD_A)) {
+	if (input->PushBotton(XINPUT_GAMEPAD_B)) {
 		shouldTransition = true;
 	}
 
@@ -68,5 +80,6 @@ void TutorialScene::Update(CLEYERA::Manager::SceneManager* ins){
 
 void TutorialScene::Draw2d(){
 	TutorialSceneUI_->Draw();
+	TitleReturn_->Draw();
 	BlackScreenTransition::GetInstance()->Draw2D();
 }
