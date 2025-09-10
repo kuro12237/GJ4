@@ -10,15 +10,11 @@ void TutorialScene::Init(){
 
 	TutorialSceneUI_ = std::make_unique<TutorialSceneUI>();
 	TutorialSceneUI_->Init();
-
 	TutorialSceneUI_->SetTranslate(Background_pos);
 	TutorialSceneUI_->SetScale(Background_Scale);
 
-	
-
 	TitleReturn_ = std::make_unique<TitleReturn>();
 	TitleReturn_->Init();
-
 	TitleReturn_->SetTranslate(Background_pos);
 	TitleReturn_->SetScale(Background_Scale);
 
