@@ -33,6 +33,12 @@ private:
 
 	Math::Vector::Vec3 TitleReturn_pos = { 175.0f,40.0f };
 	Math::Vector::Vec3 TitleReturn_scale = { 0.3f,0.2f };
+
+	// 点滅処理用の変数
+	float blinkTimer_ = 0.0f;
+	bool isTitleReturnVisible_ = true;
+	const float BLINK_INTERVAL = 0.5f; // 点滅の間隔（0.5秒ごとに切り替え）
+
 };
 
 

@@ -27,7 +27,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 
   //sceneManager->ChangeScene("GameClear");
-  sceneManager->ChangeScene("TitleScene");
+  sceneManager->ChangeScene("GameClear");
 
   while (CLEYERA::Base::Win::WinApp::GetInstance()->WinMsg()) {
     engine_->Run();
