@@ -82,11 +82,14 @@ void GameScene::Update([[maybe_unused]] CLEYERA::Manager::SceneManager *ins) {
         return; // ここで処理を中断
     }
 
-  if (ImGui::Button("SceneReLoad")) {
-    ins->ChangeScene("GameScene");
-    return;
-  }
- 
+#ifdef _DEBUG
+
+    if (ImGui::Button("SceneReLoad")) {
+      ins->ChangeScene("GameScene");
+      return;
+    }
+
+#endif // _DEBUG
 
  
  
