@@ -3,6 +3,7 @@
 #include "back/TemperatureBackUI.h"
 #include "gauge/TemperatureGauge.h"
 #include"gaugeMarking/TemperatureGaugeMarking.h"
+#include "Operation/Operation.h"
 
 class GameUI {
 public:
@@ -24,4 +25,6 @@ private:
   std::unique_ptr<TemperatureBackUI> temperatureBackUI_ = nullptr;
   std::unique_ptr<TemperatureGauge> temperatureGaugeUI_ = nullptr;
   std::unique_ptr<TemperatureGaugeMarkingUI> temperatureGaugeMarkingUI_ = nullptr;
+  std::unique_ptr<Operation> OperationUI_ = nullptr;
+
 };

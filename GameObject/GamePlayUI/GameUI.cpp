@@ -14,6 +14,8 @@ void GameUI::Init() {
   temperatureGaugeMarkingUI_->SetTemperatureParam(*temperatureParam_);
   temperatureGaugeMarkingUI_->Init();
 
+  OperationUI_ = std::make_unique<Operation>();
+  OperationUI_->Init();
 
 }
 
@@ -22,6 +24,7 @@ void GameUI::Update() {
 
   temperatureGaugeUI_->Update();
   temperatureGaugeMarkingUI_->Update();
+  OperationUI_->Update();
 }
 
 void GameUI::Draw2d() {
@@ -29,4 +32,5 @@ void GameUI::Draw2d() {
   temperatureBackUI_->Draw();
   temperatureGaugeUI_->Draw();
   temperatureGaugeMarkingUI_->Draw();
+  OperationUI_->Draw();
 }
