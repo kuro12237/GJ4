@@ -79,6 +79,8 @@ void GameScene::Update([[maybe_unused]] CLEYERA::Manager::SceneManager *ins) {
   {
   case State::Standby:
       standbyUI_->Update(); // カウントダウンの更新
+      ui_->Update();
+
       break;
   case State::Playing:
       // ここに通常のゲームプレイの更新処理を書く
@@ -91,7 +93,7 @@ void GameScene::Update([[maybe_unused]] CLEYERA::Manager::SceneManager *ins) {
       }
 
       //死んだとき
-      if (playerManager_->GetPlayer().lock()->GetIsDead()) {
+      if (playerManager_->GetPlayer().lock()->GetIsDead()){
       }
       break;
   }
