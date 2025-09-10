@@ -12,6 +12,11 @@ void GameClear::Init(){
 	GameClerUI_->SetTranslate(Background_pos);
 	GameClerUI_->SetScale(Background_Scale);
 
+	TitleReturn_ = std::make_unique<TitleReturn>();
+	TitleReturn_->Init();
+	TitleReturn_->SetTranslate(Background_pos);
+	TitleReturn_->SetScale(Background_Scale);
+
 	BlackScreenTransition::GetInstance()->StartFadeIn(2.0f, [this]() {
 
 		});
@@ -42,6 +47,8 @@ void GameClear::Update(CLEYERA::Manager::SceneManager* ins){
 	if (ImGui::TreeNode("Cler")) {
 		ImGui::DragFloat2("Background_Scale", &Background_Scale.x);
 		ImGui::DragFloat2("Background_pos", &this->Background_pos.x, 1.f, -1000.0f, 1000.0f);
+		ImGui::DragFloat2("TitleReturn_scale", &TitleReturn_scale.x);
+		ImGui::DragFloat2("TitleReturn_pos", &this->TitleReturn_pos.x, 1.f, -1000.0f, 1000.0f);
 
 		ImGui::TreePop();
 	}
@@ -50,15 +57,19 @@ void GameClear::Update(CLEYERA::Manager::SceneManager* ins){
 
 	GameClerUI_->SetTranslate(Background_pos);
 	GameClerUI_->SetScale(Background_Scale);
+	TitleReturn_->SetTranslate(TitleReturn_pos);
+	TitleReturn_->SetScale(TitleReturn_scale);
+
 
 	GameClerUI_->Update();
+	TitleReturn_->Update();
 
 	// フェード中はプレイヤーの入力を受け付けないようにする
 	if (BlackScreenTransition::GetInstance()->IsActive()) {
 		return; // ここで処理を中断
 	}
 
-	if (input->PushBotton(XINPUT_GAMEPAD_A)) {
+	if (input->PushBotton(XINPUT_GAMEPAD_B)) {
 		shouldTransition = true;
 	}
 
@@ -67,5 +78,6 @@ void GameClear::Update(CLEYERA::Manager::SceneManager* ins){
 
 void GameClear::Draw2d(){
 	GameClerUI_->Draw();
+	TitleReturn_->Draw();
 	BlackScreenTransition::GetInstance()->Draw2D();
 }
