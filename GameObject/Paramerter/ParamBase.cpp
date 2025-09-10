@@ -10,6 +10,7 @@ bool ParamBase::CalcTemperature(const Math::Vector::Vec3 &pos) {
     temperature_ += temperatureSpeed_;
   }
   if (temperature_ >= 1.0f || temperature_ <= -1.0f) {
+    isDead_ = true;
     return true;
   }
   return false;
