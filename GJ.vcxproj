@@ -125,13 +125,18 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\Externals\DirectXTex\include\;$(ProjectDir)..\GameEngine\CLEYERA\;$(ProjectDir)..\Externals\ImGui\include\;$(ProjectDir)..\Externals\Math\include\;$(ProjectDir)..\Externals\nlohmann\;$(ProjectDir)..\Externals\assimp\include\;$(ProjectDir)..\Externals\LuaAssets\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Externals\DirectXTex\include\;$(ProjectDir)Externals\Engine\include\CLEYERA\;$(ProjectDir)Externals\ImGui\include\;$(ProjectDir)Externals\Math\include\;$(ProjectDir)Externals\nlohmann\;$(ProjectDir)Externals\assimp\include\;$(ProjectDir)Externals\LuaAssets\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)Externals\Engine\lib\Release\;$(ProjectDir)Externals\Math\lib\Release\;$(ProjectDir)Externals\ImGui\lib\Release\;$(ProjectDir)Externals\DirectXTex\lib\Release\;$(ProjectDir)Externals\assimp\lib\Release\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimp-vc143-mt.lib;ImGui.lib;DirectXTex.lib;math.lib;Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
