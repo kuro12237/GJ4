@@ -43,18 +43,6 @@ void EnemyManager::Update() {
     }
   }
 
-  for (auto &enemy : enemies_) {
-    auto it = enemy.lock();
-
-    if (!it)
-      return;
-
-    if (it->GetMode() ==
-        CLEYERA::Component::ObjectComponent::OBJ_MODE::REMOVE) {
-      SpawnEffect(it->GetTranslate());
-      killEnemyCount_++;
-    }
-  }
 }
 
 void EnemyManager::SpawnEnemy(const Math::Vector::Vec3 &pos) {
@@ -63,7 +51,9 @@ void EnemyManager::SpawnEnemy(const Math::Vector::Vec3 &pos) {
   auto enemy = objManager->CreateObject<EnemyTakanori>(
       VAR_NAME(EnemyTakanori), std::make_shared<EnemyTakanori>());
   enemy.lock()->SetTranslate(pos);
-
+  enemy.lock()->SetPlayerPos(playerPos_);
+ 
+  enemy.lock()->SetWorldSetting(world_);
   enemy.lock()->SetEffectSpawnFunc(
       [this](const Math::Vector::Vec3 &pos) { SpawnEffect(pos); });
 
@@ -77,6 +67,7 @@ void EnemyManager::SpawnEffect(const Math::Vector::Vec3 &pos) {
   auto enemy = objManager->CreateObject<HitEnemyEffect>(
       VAR_NAME(HitEnemyEffect), std::make_shared<HitEnemyEffect>());
   enemy.lock()->SetSpownPos(pos);
+ 
   if (enemy.lock()) {
 
     effects_.push_back(std::move(enemy));
