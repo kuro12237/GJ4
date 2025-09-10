@@ -50,9 +50,23 @@ void GameScene::Init() {
       this->currentState_ = State::Playing;
     });
   });
+
+  auto modelManager_ = CLEYERA::Manager::ModelManager::GetInstance();
+
+  modelManager_->LoadModel("Resources/Model/Player/ductTape", "ductTape");
+  modelManager_->LoadModel("Resources/Model/Enemy/Effect/soukaiJp", "sokaiJp");
+  modelManager_->LoadModel("Resources/Model/Enemy/Effect/sokai", "sokai");
+  modelManager_->LoadModel("Resources/Model/Enemy/Effect/miwaku", "miwaku");
+  modelManager_->LoadModel("Resources/Model/Enemy/Effect/NAMAasi", "NAMAasi");
+  modelManager_->LoadModel("Resources/Model/Enemy/damageEnemy", "damageEnemy");
+
 }
 
 void GameScene::Update([[maybe_unused]] CLEYERA::Manager::SceneManager *ins) {
+
+
+  // 毎フレーム、トランジション（フェード処理）の更新を呼び出す
+  BlackScreenTransition::GetInstance()->Update();
 
 
 
@@ -89,9 +103,9 @@ void GameScene::Update([[maybe_unused]] CLEYERA::Manager::SceneManager *ins) {
   switch (currentState_) {
   case State::Standby:
     standbyUI_->Update(); // カウントダウンの更新
-    ui_->Update();
 
     break;
+
   case State::Playing: {
     // ここに通常のゲームプレイの更新処理を書く
     playerManager_->GetPlayer().lock()->ParamBase::SetStart(true);
