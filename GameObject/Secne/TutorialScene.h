@@ -5,6 +5,7 @@
 
 #include "TutorialSceneUI/TutorialSceneUI.h"
 #include "TitleReturn/TitleReturn.h"
+#include "Camera.h"
 
 
 
@@ -24,6 +25,7 @@ private:
 	bool shouldTransition = false;
 	std::unique_ptr<TutorialSceneUI> TutorialSceneUI_ = nullptr;
 	std::unique_ptr<TitleReturn> TitleReturn_ = nullptr;
+	std::shared_ptr<CameraUI> camera_ = nullptr;
 
 
 	Math::Vector::Vec3 Background_pos = { 640.0f,355.0f };

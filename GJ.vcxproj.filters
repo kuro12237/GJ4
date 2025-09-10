@@ -43,6 +43,7 @@
     <ClCompile Include="GameObject\Secne\TutorialSceneUI\TutorialSceneUI.cpp" />
     <ClCompile Include="GameObject\Secne\TitleReturn\TitleReturn.cpp" />
     <ClCompile Include="GameObject\GamePlayUI\Operation\Operation.cpp" />
+    <ClCompile Include="GameObject\Secne\Camera.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Enemys\EnemyBase.h" />
@@ -106,5 +107,6 @@
     <ClInclude Include="GameObject\Secne\TutorialSceneUI\TutorialSceneUI.h" />
     <ClInclude Include="GameObject\Secne\TitleReturn\TitleReturn.h" />
     <ClInclude Include="GameObject\GamePlayUI\Operation\Operation.h" />
+    <ClInclude Include="GameObject\Secne\Camera.h" />
   </ItemGroup>
 </Project>

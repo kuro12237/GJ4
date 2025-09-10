@@ -4,6 +4,9 @@ void GameOver::Init() {
 	// 最初にトランジションの初期化を行う
 	BlackScreenTransition::GetInstance()->Init();
 
+	camera_ = std::make_shared<CameraUI>();
+	camera_->Init();
+
 	shouldTransition = false;
 
 	GameOverUI_ = std::make_unique<GameOverUI>();

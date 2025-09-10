@@ -6,7 +6,8 @@ void TutorialScene::Init(){
 
 	shouldTransition = false;
 
-	
+	camera_ = std::make_shared<CameraUI>();
+	camera_->Init();
 
 	TutorialSceneUI_ = std::make_unique<TutorialSceneUI>();
 	TutorialSceneUI_->Init();

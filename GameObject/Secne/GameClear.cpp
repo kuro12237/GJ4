@@ -6,6 +6,9 @@ void GameClear::Init(){
 
 	shouldTransition = false;
 
+	camera_ = std::make_shared<CameraUI>();
+	camera_->Init();
+
 	GameClerUI_ = std::make_unique<GameClerUI>();
 	GameClerUI_->Init();
 
@@ -48,7 +51,7 @@ void GameClear::Update(CLEYERA::Manager::SceneManager* ins){
 		ImGui::DragFloat2("Background_Scale", &Background_Scale.x);
 		ImGui::DragFloat2("Background_pos", &this->Background_pos.x, 1.f, -1000.0f, 1000.0f);
 		ImGui::DragFloat2("TitleReturn_scale", &TitleReturn_scale.x);
-		ImGui::DragFloat2("TitleReturn_pos", &this->TitleReturn_pos.x, 1.f, -1000.0f, 1000.0f);
+		ImGui::DragFloat2("TitleReturn_pos", &this->TitleReturn_pos.x, 1.f, -1000.0f, 2000.0f);
 
 		ImGui::TreePop();
 	}
