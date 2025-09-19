@@ -22,7 +22,8 @@ void PlayerManager::Update() {
 
   camera_->Update();
 
-  if (input->PushBottonPressed(XINPUT_GAMEPAD_A)) {
+  if (input->PushBottonPressed(XINPUT_GAMEPAD_A) ||
+      input->PushKeyPressed(DIK_SPACE)) {
 
     auto bullet = objManager->CreateObject<PlayerBullet>(
         VAR_NAME(PlayerBullet), std::make_shared<PlayerBullet>());

@@ -10,6 +10,8 @@ void IPlayerState::Control() {
 
   Math::Vector::Vec2 joyPos =
       CLEYERA::Manager::InputManager::GetInstance()->JoyLPos();
+
+  auto input = CLEYERA::Manager::InputManager::GetInstance();
   const float deadZone = 0.02f;
 
   if (std::abs(joyPos.x) > deadZone || std::abs(joyPos.y) > deadZone) {
@@ -20,7 +22,21 @@ void IPlayerState::Control() {
 
     *force_ = moveDir_;
   }
- 
+  if (input->PushKey(DIK_W)) {
+    force_->z += *speed_;
+
+  } else if (input->PushKey(DIK_S)) {
+    force_->z -= *speed_;
+  }
+
+  if (input->PushKey(DIK_A)) {
+    force_->x -= *speed_;
+  } else if (input->PushKey(DIK_D)) {
+
+    force_->x += *speed_;
+  }
+
+
   if (translate_->z > *zCenter_ + heightMinMax_) {
     if (force_->z > 0.0f) { // 壁の外へ押しているときだけ止める
       force_->z = 0.0f;
@@ -43,4 +59,6 @@ void IPlayerState::Control() {
       force_->x = 0.0f;
     }
   }
+
+
 }
