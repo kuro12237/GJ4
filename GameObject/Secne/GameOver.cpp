@@ -32,18 +32,18 @@ void GameOver::Update(CLEYERA::Manager::SceneManager* ins) {
 	auto sceneManager = CLEYERA::Manager::SceneManager::GetInstance();
 
 
-	// シーン遷移が必要な場合
+	// シーン遷移が忁E��な場吁E
 	if (shouldTransition) {
-		// フェードアウトを開始
+		// フェードアウトを開姁E
 		BlackScreenTransition::GetInstance()->StartFadeOut(1.0f, [=]() {
 			sceneManager->ChangeScene("TitleScene");
 			return;
 			});
 	}
-	// 毎フレーム、トランジション（フェード処理）の更新を呼び出す
+	// 毎フレーム、トランジション�E�フェード�E琁E���E更新を呼び出ぁE
 	BlackScreenTransition::GetInstance()->Update();
 
-	//各シーンで呼び出す
+	//吁E��ーンで呼び出ぁE
 	if (BlackScreenTransition::GetInstance()->isOverReturn()){
 		return;
 	}
@@ -66,12 +66,12 @@ void GameOver::Update(CLEYERA::Manager::SceneManager* ins) {
 	GameOverUI_->Update();
 	TitleReturn_->Update();
 
-	// フェード中はプレイヤーの入力を受け付けないようにする
+	// フェード中はプレイヤーの入力を受け付けなぁE��ぁE��する
 	if (BlackScreenTransition::GetInstance()->IsActive()) {
 		return;
 	}
 
-	if (input->PushBotton(XINPUT_GAMEPAD_B)) {
+	if (input->PushBotton(XINPUT_GAMEPAD_B)|| input->PushKey(DIKEYBOARD_SPACE)) {
 		shouldTransition = true;
 	}
 

@@ -67,13 +67,14 @@ void TitleScene::Update([[maybe_un_used]] CLEYERA::Manager::SceneManager* ins) {
 
         // 状態：ロゴ表示中
     case State::LOGO_SHOW:
-        // Aボタンが押されたら
-        if (input->PushBotton(XINPUT_GAMEPAD_A)) {
+        // Aボタンが押されたら&スペースが押されたら
+        if (input->PushBotton(XINPUT_GAMEPAD_A)|| input->PushKey(DIKEYBOARD_SPACE)) {
             // ロゴのアニメーションを開始
             LogoManager_->StartOpeningAnimation(40.0f, 0.1f); // 40ピクセル、0.5秒かけて開く
             // 状態を「ロゴがアニメーション中」へ変更
             currentState_ = State::LOGO_ANIMATING;
         }
+        
         break;
 
         // 状態：ロゴがアニメーション中
@@ -91,16 +92,16 @@ void TitleScene::Update([[maybe_un_used]] CLEYERA::Manager::SceneManager* ins) {
         SelectManager_->Update();
 
         // 十字キー右
-        if (input->PushBotton(XINPUT_GAMEPAD_DPAD_RIGHT)) {
+        if (input->PushBotton(XINPUT_GAMEPAD_DPAD_RIGHT)|| input->PushKey(DIKEYBOARD_D)) {
             SelectManager_->OnDpadInput(1);
         }
         // 十字キー左
-        if (input->PushBotton(XINPUT_GAMEPAD_DPAD_LEFT)) {
+        if (input->PushBotton(XINPUT_GAMEPAD_DPAD_LEFT)|| input->PushKey(DIKEYBOARD_A)) {
             SelectManager_->OnDpadInput(-1);
         }
 
         // Aボタンで選択を決定
-        if (input->PushBotton(XINPUT_GAMEPAD_A)) {
+        if (input->PushBotton(XINPUT_GAMEPAD_A)|| input->PushKey(DIKEYBOARD_SPACE)) {
 
                 bool shouldTransition = false;
 

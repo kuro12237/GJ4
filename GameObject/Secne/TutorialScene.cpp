@@ -71,9 +71,10 @@ void TutorialScene::Update(CLEYERA::Manager::SceneManager* ins){
 		return; // ここで処理を中断
 	}
 
-	if (input->PushBotton(XINPUT_GAMEPAD_B)) {
+	if (input->PushBotton(XINPUT_GAMEPAD_B)|| input->PushKey(DIKEYBOARD_SPACE)) {
 		shouldTransition = true;
 	}
+
 
 }
 
